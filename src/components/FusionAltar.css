@@ -1,0 +1,318 @@
+/* FusionAltar.css - Styles for the Egg Fusion Altar component */
+
+.fusion-altar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 20px;
+  background: var(--clay-light);
+  border-radius: 20px;
+  box-shadow: 
+    inset 8px 8px 16px rgba(0, 0, 0, 0.1),
+    inset -8px -8px 16px rgba(255, 255, 255, 0.8);
+  min-height: 300px;
+}
+
+.fusion-title {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  color: var(--clay-dark);
+  margin: 0;
+  text-align: center;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Offering Slots Container */
+.fusion-offering-slots {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Individual Fusion Slot */
+.fusion-slot {
+  width: 100px;
+  height: 100px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.fusion-slot.empty {
+  background: var(--clay-light);
+  box-shadow: 
+    inset 4px 4px 8px rgba(0, 0, 0, 0.15),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+  border: 2px dashed var(--clay-medium);
+}
+
+.fusion-slot.filled {
+  background: var(--clay-light);
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.1),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
+  border: 2px solid var(--clay-medium);
+}
+
+.fusion-slot:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.15),
+    -6px -6px 12px rgba(255, 255, 255, 0.9);
+}
+
+/* Empty Slot Placeholder */
+.fusion-slot-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  color: var(--clay-medium);
+  font-family: var(--font-primary);
+}
+
+.fusion-plus {
+  font-size: 2rem;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.fusion-text {
+  font-size: 0.7rem;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Filled Slot Content */
+.fusion-egg {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.fusion-egg-art {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.fusion-egg-name {
+  font-size: 0.7rem;
+  font-family: var(--font-primary);
+  color: var(--clay-dark);
+  font-weight: 600;
+  max-width: 80px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Result Area */
+.fusion-result-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.fusion-arrow {
+  font-size: 1.5rem;
+  color: var(--clay-medium);
+  font-weight: bold;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.fusion-result-slot {
+  width: 120px;
+  height: 120px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clay-light);
+  box-shadow: 
+    inset 6px 6px 12px rgba(0, 0, 0, 0.2),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.9);
+  border: 3px solid var(--clay-medium);
+}
+
+.fusion-result-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+
+.fusion-result-art {
+  font-size: 2.5rem;
+  line-height: 1;
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6));
+  }
+  to {
+    filter: drop-shadow(0 0 16px rgba(255, 215, 0, 0.9));
+  }
+}
+
+.fusion-result-name {
+  font-size: 0.8rem;
+  font-family: var(--font-primary);
+  color: var(--clay-dark);
+  font-weight: 700;
+  max-width: 100px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fusion-result-placeholder {
+  font-size: 3rem;
+  color: var(--clay-medium);
+  opacity: 0.5;
+  font-weight: bold;
+}
+
+/* Fusion Button */
+.fusion-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 15px;
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+}
+
+.fusion-button.active {
+  background: linear-gradient(135deg, #FFD700, #FFA500);
+  color: white;
+  box-shadow: 
+    4px 4px 8px rgba(0, 0, 0, 0.2),
+    -2px -2px 4px rgba(255, 255, 255, 0.3);
+}
+
+.fusion-button.active:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    6px 6px 12px rgba(0, 0, 0, 0.25),
+    -3px -3px 6px rgba(255, 255, 255, 0.4);
+  background: linear-gradient(135deg, #FFE55C, #FFB347);
+}
+
+.fusion-button.active:active {
+  transform: translateY(0);
+  box-shadow: 
+    2px 2px 4px rgba(0, 0, 0, 0.2),
+    -1px -1px 2px rgba(255, 255, 255, 0.3);
+}
+
+.fusion-button.inactive {
+  background: var(--clay-medium);
+  color: var(--clay-dark);
+  cursor: not-allowed;
+  opacity: 0.6;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.1),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fusion-altar {
+    padding: 15px;
+    gap: 15px;
+  }
+
+  .fusion-title {
+    font-size: 1.3rem;
+  }
+
+  .fusion-offering-slots {
+    gap: 10px;
+  }
+
+  .fusion-slot {
+    width: 80px;
+    height: 80px;
+  }
+
+  .fusion-plus {
+    font-size: 1.5rem;
+  }
+
+  .fusion-text {
+    font-size: 0.6rem;
+  }
+
+  .fusion-egg-art {
+    font-size: 1.5rem;
+  }
+
+  .fusion-egg-name {
+    font-size: 0.6rem;
+    max-width: 70px;
+  }
+
+  .fusion-result-slot {
+    width: 100px;
+    height: 100px;
+  }
+
+  .fusion-result-art {
+    font-size: 2rem;
+  }
+
+  .fusion-result-name {
+    font-size: 0.7rem;
+    max-width: 80px;
+  }
+
+  .fusion-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    min-width: 130px;
+  }
+}
+
+@media (max-width: 480px) {
+  .fusion-offering-slots {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .fusion-slot {
+    width: 70px;
+    height: 70px;
+  }
+
+  .fusion-result-slot {
+    width: 90px;
+    height: 90px;
+  }
+
+  .fusion-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    min-width: 120px;
+  }
+} 

@@ -1,0 +1,241 @@
+/* ChickenGrid Component Styles - Claymorphism Design */
+
+/* Main Chickens Section */
+.chickens-section {
+  padding: 40px 0 120px 0; /* Bottom padding for floating action bar */
+  background: var(--bg-primary);
+  min-height: 60vh; /* Ensure minimum height for content */
+}
+
+.chickens-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Header Styles */
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+  text-shadow: 1px 1px 3px rgba(107, 91, 71, 0.1); /* Subtle text shadow */
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  font-weight: var(--font-weight-normal);
+  color: var(--text-secondary);
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Responsive Grid Layout */
+.chickens-grid {
+  display: grid;
+  gap: 20px; /* Space between grid items */
+  
+  /* Responsive grid columns */
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  
+  /* Ensure proper alignment */
+  justify-content: center;
+  align-items: start;
+}
+
+/* Empty State Styles */
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px; /* Minimum height for empty state */
+  padding: 40px 20px;
+}
+
+.empty-state-content {
+  text-align: center;
+  background: var(--clay-base);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-clay-raised);
+  padding: 40px;
+  max-width: 400px;
+  width: 100%;
+}
+
+.empty-emoji {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 20px;
+  animation: gentle-float 3s ease-in-out infinite; /* Subtle floating animation */
+}
+
+.empty-title {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0 0 12px 0;
+}
+
+.empty-description {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chickens-section {
+    padding: 30px 0 100px 0;
+  }
+  
+  .chickens-container {
+    padding: 0 16px;
+  }
+  
+  .section-header {
+    margin-bottom: 30px;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .chickens-grid {
+    gap: 16px;
+    /* Adjust grid for tablet */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  
+  .empty-state-content {
+    padding: 30px;
+  }
+  
+  .empty-emoji {
+    font-size: 3rem;
+    margin-bottom: 16px;
+  }
+  
+  .empty-title {
+    font-size: 1.25rem;
+  }
+  
+  .empty-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chickens-section {
+    padding: 20px 0 80px 0;
+  }
+  
+  .chickens-container {
+    padding: 0 12px;
+  }
+  
+  .section-header {
+    margin-bottom: 24px;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.85rem;
+  }
+  
+  .chickens-grid {
+    gap: 12px;
+    /* Single column on mobile */
+    grid-template-columns: 1fr;
+  }
+  
+  .empty-state {
+    min-height: 250px;
+    padding: 20px;
+  }
+  
+  .empty-state-content {
+    padding: 24px;
+  }
+  
+  .empty-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+  }
+  
+  .empty-title {
+    font-size: 1.1rem;
+  }
+  
+  .empty-description {
+    font-size: 0.85rem;
+  }
+}
+
+/* Grid animation entrance effects */
+@keyframes gridFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chickens-grid {
+  animation: gridFadeIn 0.6s ease-out 0.2s both;
+}
+
+/* Loading state styles (for future use) */
+.loading-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+}
+
+.loading-card {
+  height: 160px;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-raised);
+  animation: soft-pulse 1.5s ease-in-out infinite;
+}
+
+/* Accessibility improvements */
+.section-title:focus,
+.section-subtitle:focus {
+  outline: 2px solid rgba(107, 91, 71, 0.3);
+  outline-offset: 2px;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Print styles */
+@media print {
+  .chickens-section {
+    padding: 20px 0;
+  }
+  
+  .chickens-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+  
+  .empty-state-content {
+    box-shadow: none;
+    border: 1px solid var(--clay-darker);
+  }
+} 

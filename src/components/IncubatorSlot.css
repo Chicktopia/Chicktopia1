@@ -1,0 +1,254 @@
+/* IncubatorSlot Component Styles */
+/* Implements claymorphism design for all incubator slot states */
+
+.incubator-slot {
+  /* Base slot container with inset claymorphism effect */
+  background: var(--clay-base);
+  border-radius: 20px;
+  padding: 24px;
+  min-height: 220px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Inset shadow for clay depression effect */
+  box-shadow: 
+    inset 6px 6px 12px rgba(139, 125, 111, 0.4),
+    inset -6px -6px 12px rgba(255, 255, 255, 0.8);
+    
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Slot content container */
+.slot-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+/* EMPTY STATE STYLES */
+.slot-empty .nest-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.slot-empty .add-icon {
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--clay-dark);
+  opacity: 0.6;
+  font-family: 'Lilita One', cursive;
+}
+
+.slot-empty .slot-text {
+  font-family: 'Lilita One', cursive;
+  font-size: 16px;
+  color: var(--clay-dark);
+  margin: 0;
+  opacity: 0.8;
+}
+
+.slot-empty:hover {
+  /* Subtle hover effect for empty slots */
+  box-shadow: 
+    inset 4px 4px 8px rgba(139, 125, 111, 0.3),
+    inset -4px -4px 8px rgba(255, 255, 255, 0.9);
+}
+
+/* HATCHING STATE STYLES */
+.slot-hatching .egg-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.slot-hatching .egg-sprite {
+  font-size: 36px;
+  animation: gentle-pulse 2s ease-in-out infinite;
+}
+
+.slot-hatching .timer-display {
+  font-family: 'Lilita One', cursive;
+  font-size: 18px;
+  color: var(--clay-dark);
+  background: rgba(255, 255, 255, 0.3);
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 2px solid rgba(139, 125, 111, 0.2);
+}
+
+.slot-hatching .speed-up-btn {
+  background: linear-gradient(145deg, #f4e6d3, #d3c4b3);
+  border: none;
+  border-radius: 12px;
+  padding: 8px 12px;
+  font-size: 16px;
+  cursor: pointer;
+  
+  /* Raised claymorphism button effect */
+  box-shadow: 
+    4px 4px 8px rgba(139, 125, 111, 0.4),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
+    
+  transition: all 0.2s ease;
+}
+
+.slot-hatching .speed-up-btn:hover {
+  box-shadow: 
+    2px 2px 4px rgba(139, 125, 111, 0.4),
+    -2px -2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* READY STATE STYLES */
+.slot-ready {
+  /* Glowing effect for ready slots */
+  animation: ready-glow 3s ease-in-out infinite;
+}
+
+.slot-ready .ready-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.slot-ready .cracking-egg {
+  font-size: 42px;
+  animation: crack-animation 1.5s ease-in-out infinite;
+}
+
+.slot-ready .hatch-btn {
+  background: linear-gradient(145deg, #e8d5c4, #c9b8a5);
+  border: none;
+  border-radius: 16px;
+  padding: 12px 24px;
+  font-family: 'Lilita One', cursive;
+  font-size: 18px;
+  color: var(--clay-dark);
+  cursor: pointer;
+  
+  /* Prominent raised button effect */
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.9);
+    
+  transition: all 0.2s ease;
+}
+
+.slot-ready .hatch-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(139, 125, 111, 0.6),
+    -8px -8px 16px rgba(255, 255, 255, 1);
+}
+
+/* LOCKED STATE STYLES */
+.slot-locked {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.slot-locked .lock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.slot-locked .lock-icon {
+  font-size: 36px;
+  opacity: 0.7;
+}
+
+.slot-locked .unlock-price {
+  font-family: 'Lilita One', cursive;
+  font-size: 14px;
+  color: var(--clay-dark);
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* ANIMATIONS */
+@keyframes gentle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+@keyframes ready-glow {
+  0%, 100% { 
+    box-shadow: 
+      inset 6px 6px 12px rgba(139, 125, 111, 0.4),
+      inset -6px -6px 12px rgba(255, 255, 255, 0.8),
+      0 0 20px rgba(255, 215, 0, 0.3);
+  }
+  50% { 
+    box-shadow: 
+      inset 6px 6px 12px rgba(139, 125, 111, 0.4),
+      inset -6px -6px 12px rgba(255, 255, 255, 0.8),
+      0 0 30px rgba(255, 215, 0, 0.5);
+  }
+}
+
+@keyframes crack-animation {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-2deg) scale(1.02); }
+  75% { transform: rotate(2deg) scale(1.02); }
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .incubator-slot {
+    min-height: 180px;
+    height: 180px;
+    padding: 20px;
+  }
+  
+  .slot-empty .add-icon {
+    font-size: 36px;
+  }
+  
+  .slot-hatching .egg-sprite {
+    font-size: 28px;
+  }
+  
+  .slot-ready .cracking-egg {
+    font-size: 32px;
+  }
+  
+  .slot-locked .lock-icon {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .incubator-slot {
+    min-height: 150px;
+    height: 150px;
+    padding: 16px;
+  }
+  
+  .slot-empty .add-icon {
+    font-size: 28px;
+  }
+  
+  .slot-empty .slot-text,
+  .slot-hatching .timer-display {
+    font-size: 14px;
+  }
+  
+  .slot-ready .hatch-btn {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+} 

@@ -1,0 +1,402 @@
+/* TopNav Component Styles - Claymorphism Design */
+
+.top-nav {
+  position: fixed; /* Fixed positioning at top of page */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it stays above other content */
+  background: var(--bg-primary); /* Sandy beige background */
+  box-shadow: 0 4px 20px rgba(107, 91, 71, 0.1); /* Subtle soft shadow for elevation */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  backdrop-filter: blur(10px); /* Subtle blur effect */
+  border-bottom: 1px solid rgba(107, 91, 71, 0.05); /* Very subtle border */
+}
+
+.nav-container {
+  max-width: 1200px; /* Match main container width */
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px; /* Vertical and horizontal padding */
+  gap: 20px; /* Space between sections */
+}
+
+/* Logo Section Styles */
+.nav-logo {
+  flex-shrink: 0; /* Prevent logo from shrinking */
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(107, 91, 71, 0.1); /* Subtle text shadow */
+}
+
+/* Balance Display Section */
+.nav-balance {
+  flex-grow: 1; /* Take available space */
+  display: flex;
+  justify-content: center; /* Center the balance display */
+}
+
+.balance-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--clay-base); /* Clay background */
+  padding: 8px 16px;
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-clay-raised); /* Clay raised effect */
+  transition: all 0.3s ease;
+}
+
+.balance-display:hover {
+  transform: translateY(-1px); /* Subtle lift on hover */
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.coin-icon {
+  font-size: 1.2rem;
+  color: #FFD700; /* Gold color for coin */
+  filter: drop-shadow(0 1px 2px rgba(107, 91, 71, 0.2));
+  animation: gentle-float 3s ease-in-out infinite; /* Subtle floating animation */
+}
+
+.balance-text {
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+/* Navigation Actions Section - Redesigned */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+/* Player Hub Styles */
+.player-hub {
+  position: relative; /* For dropdown positioning */
+}
+
+/* Connect Wallet Button (Logged-Out State) */
+.connect-wallet-btn {
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-semibold);
+  background: var(--clay-base);
+  color: var(--text-primary);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.connect-wallet-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-clay-hover);
+  background: var(--clay-lighter);
+}
+
+.connect-wallet-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-clay-pressed);
+}
+
+/* Player Profile Container (Logged-In State) */
+.player-profile-container {
+  position: relative;
+}
+
+/* Player Profile Button */
+.player-profile-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  background: var(--clay-base);
+  color: var(--text-primary);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.player-profile-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-clay-hover);
+  background: var(--clay-lighter);
+}
+
+.profile-avatar {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.player-name {
+  font-weight: var(--font-weight-semibold);
+}
+
+.dropdown-arrow {
+  font-size: 0.8rem;
+  transition: transform 0.3s ease;
+}
+
+.dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Styles (Shared by Player Hub and Hamburger) */
+.player-hub-dropdown,
+.hamburger-dropdown {
+  position: absolute;
+  top: calc(100% + 8px); /* Position below the button */
+  right: 0; /* Align to right edge */
+  background: var(--clay-base);
+  border-radius: var(--border-radius-md);
+  box-shadow: 
+    0 8px 32px rgba(107, 91, 71, 0.2),
+    var(--shadow-clay-raised);
+  min-width: 180px;
+  z-index: 1001; /* Above top nav */
+  animation: dropdownFadeIn 0.3s ease-out;
+}
+
+.dropdown-menu {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 0;
+}
+
+.dropdown-item:hover {
+  background: var(--clay-lighter);
+  transform: translateX(4px);
+}
+
+.dropdown-item:first-child {
+  border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+}
+
+.dropdown-item:last-child {
+  border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
+}
+
+.dropdown-item.logout {
+  border-top: 1px solid rgba(107, 91, 71, 0.1);
+  color: #B8860B; /* Slightly different color for logout */
+}
+
+.dropdown-item.logout:hover {
+  background: rgba(184, 134, 11, 0.1);
+}
+
+.dropdown-icon {
+  font-size: 1rem;
+  width: 20px;
+  text-align: center;
+}
+
+/* Hamburger Menu Container */
+.hamburger-container {
+  position: relative;
+}
+
+/* Menu Button Styles - Updated */
+.menu-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%; /* Circular button */
+  background: var(--clay-base);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.menu-btn:active {
+  transform: translateY(0) scale(1);
+  box-shadow: var(--shadow-clay-pressed);
+}
+
+.menu-icon {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--text-primary);
+  -webkit-user-select: none; /* Safari support */
+  user-select: none; /* Prevent text selection */
+}
+
+/* Dropdown Animation */
+@keyframes dropdownFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 768px) {
+  .nav-container {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+  
+  .logo-text {
+    font-size: 1.25rem;
+  }
+  
+  .nav-actions {
+    gap: 12px; /* Reduced gap on tablet */
+  }
+  
+  .balance-display {
+    padding: 6px 12px;
+  }
+  
+  .balance-text {
+    font-size: 0.85rem;
+  }
+  
+  .coin-icon {
+    font-size: 1rem;
+  }
+  
+  /* Adjust Player Hub for tablet */
+  .connect-wallet-btn {
+    padding: 8px 16px;
+    font-size: 0.85rem;
+  }
+  
+  .player-profile-btn {
+    padding: 6px 12px;
+    font-size: 0.85rem;
+  }
+  
+  .player-name {
+    display: none; /* Hide player name on tablet to save space */
+  }
+  
+  /* Adjust dropdown positioning */
+  .player-hub-dropdown,
+  .hamburger-dropdown {
+    min-width: 160px;
+    right: -10px; /* Adjust positioning for smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-container {
+    padding: 10px 12px;
+    gap: 8px;
+  }
+  
+  .logo-text {
+    font-size: 1.1rem;
+  }
+  
+  .nav-actions {
+    gap: 8px; /* Further reduced gap on mobile */
+  }
+  
+  .balance-display {
+    padding: 4px 8px;
+  }
+  
+  .balance-text {
+    font-size: 0.8rem;
+    /* Show abbreviated text on very small screens */
+  }
+  
+  .balance-text::before {
+    content: "💰 ";
+  }
+  
+  .menu-btn {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .menu-icon {
+    font-size: 1rem;
+  }
+  
+  /* Further adjust Player Hub for mobile */
+  .connect-wallet-btn {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+  
+  .player-profile-btn {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+  
+  .profile-avatar {
+    font-size: 1rem;
+  }
+  
+  /* Mobile dropdown adjustments */
+  .player-hub-dropdown,
+  .hamburger-dropdown {
+    min-width: 140px;
+    right: -20px;
+  }
+  
+  .dropdown-item {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Animation for smooth appearance */
+.top-nav {
+  animation: slideDown 0.5s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+} 

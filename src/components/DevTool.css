@@ -1,0 +1,213 @@
+/* DevTool Component Styles */
+/* Floating developer tool with claymorphism design for testing game mechanics */
+
+.dev-tool {
+  /* Fixed positioning in bottom-right corner */
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10000; /* Above all other content */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+/* Main toggle button */
+.dev-tool-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(145deg, #e8d5c4, #c9b8a5);
+  color: var(--clay-dark);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  
+  /* Prominent raised claymorphism effect */
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.9);
+}
+
+.dev-tool-toggle:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 
+    8px 8px 16px rgba(139, 125, 111, 0.6),
+    -8px -8px 16px rgba(255, 255, 255, 1);
+}
+
+.dev-tool-toggle.expanded {
+  background: linear-gradient(145deg, #FFD700, #FFA500);
+  color: white;
+  transform: rotate(45deg);
+}
+
+.dev-tool-toggle.expanded:hover {
+  transform: translateY(-2px) scale(1.05) rotate(45deg);
+}
+
+/* Expanded panel */
+.dev-tool-panel {
+  background: var(--clay-base);
+  border-radius: 16px;
+  padding: 16px;
+  min-width: 200px;
+  
+  /* Raised panel effect */
+  box-shadow: 
+    8px 8px 16px rgba(139, 125, 111, 0.5),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+    
+  animation: panel-appear 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: bottom right;
+}
+
+/* Panel header */
+.dev-tool-header {
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(139, 125, 111, 0.1);
+}
+
+.dev-tool-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 14px;
+  color: var(--clay-dark);
+  font-weight: bold;
+}
+
+/* Button container */
+.dev-tool-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Dev buttons */
+.dev-button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  font-family: 'Lilita One', cursive;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  
+  /* Base raised effect */
+  box-shadow: 
+    4px 4px 8px rgba(139, 125, 111, 0.4),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.dev-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.9);
+}
+
+.dev-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    2px 2px 4px rgba(139, 125, 111, 0.3),
+    -2px -2px 4px rgba(255, 255, 255, 0.7);
+}
+
+/* Currency button styling */
+.dev-button.currency {
+  background: linear-gradient(145deg, #90EE90, #32CD32);
+  color: white;
+}
+
+.dev-button.currency:hover {
+  background: linear-gradient(145deg, #98FB98, #3CB371);
+}
+
+/* Reset button styling */
+.dev-button.reset {
+  background: linear-gradient(145deg, #FFB6C1, #FF69B4);
+  color: white;
+}
+
+.dev-button.reset:hover {
+  background: linear-gradient(145deg, #FFC0CB, #FF1493);
+}
+
+/* Panel appear animation */
+@keyframes panel-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .dev-tool {
+    bottom: 16px;
+    right: 16px;
+  }
+  
+  .dev-tool-toggle {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+  
+  .dev-tool-panel {
+    padding: 14px;
+    min-width: 180px;
+  }
+  
+  .dev-tool-title {
+    font-size: 13px;
+  }
+  
+  .dev-button {
+    padding: 8px 14px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .dev-tool {
+    bottom: 12px;
+    right: 12px;
+  }
+  
+  .dev-tool-toggle {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+  
+  .dev-tool-panel {
+    padding: 12px;
+    min-width: 160px;
+  }
+  
+  .dev-tool-title {
+    font-size: 12px;
+  }
+  
+  .dev-button {
+    padding: 8px 12px;
+    font-size: 10px;
+  }
+}
+
+/* Ensure dev tool doesn't interfere with bottom navigation */
+@media (max-width: 768px) {
+  .dev-tool {
+    bottom: 100px; /* Above bottom navigation on mobile */
+  }
+} 

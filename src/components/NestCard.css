@@ -1,0 +1,548 @@
+/**
+ * NestCard.css - Styling for the Nest Card Component
+ * Handles multiple states: empty, working, ready, locked
+ */
+
+/* Base Nest Card */
+.nest-card {
+  background: var(--clay-elevated);
+  border-radius: var(--border-radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+.nest-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-clay-elevated);
+}
+
+.nest-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 15px;
+}
+
+/* Locked State */
+.nest-card.locked {
+  background: var(--clay-darker);
+  border: 2px dashed var(--text-muted);
+  cursor: pointer;
+}
+
+.nest-card.locked:hover {
+  border-color: var(--accent-primary);
+  background: var(--clay-elevated);
+}
+
+.lock-icon {
+  font-size: 2.5rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.nest-card.locked:hover .lock-icon {
+  color: var(--accent-primary);
+}
+
+.unlock-cost {
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--accent-primary);
+  margin: 10px 0;
+}
+
+.unlock-button {
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-clay-raised);
+}
+
+.unlock-button:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+/* Empty State */
+.nest-card.empty {
+  background: var(--clay-lighter);
+  border: 2px dashed var(--text-secondary);
+}
+
+.nest-card.empty:hover {
+  border-color: var(--accent-primary);
+  background: var(--clay-elevated);
+}
+
+.nest-icon {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  opacity: 0.7;
+}
+
+.nest-title {
+  font-size: 1.3rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 8px 0;
+}
+
+.nest-description {
+  color: var(--text-secondary);
+  margin: 0 0 15px 0;
+  font-size: 0.95rem;
+}
+
+.assign-button {
+  background: var(--accent-primary);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: var(--shadow-clay-raised);
+}
+
+.assign-button:hover {
+  background: var(--accent-secondary);
+  transform: translateY(-2px);
+}
+
+.nest-level {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: var(--accent-primary);
+  color: white;
+  padding: 4px 8px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-bold);
+}
+
+/* Working State */
+.nest-card.working {
+  background: linear-gradient(135deg, var(--clay-elevated) 0%, var(--clay-lighter) 100%);
+  cursor: default;
+  min-height: 400px;
+}
+
+.nest-card.working:hover {
+  transform: none;
+}
+
+/* Enhanced Working State with Rarity-based Glow */
+.nest-card.working-common {
+  box-shadow: 
+    var(--shadow-clay-raised),
+    0 0 20px rgba(74, 144, 226, 0.3),
+    0 0 40px rgba(74, 144, 226, 0.1);
+  animation: commonGlow 3s ease-in-out infinite alternate;
+}
+
+.nest-card.working-uncommon {
+  box-shadow: 
+    var(--shadow-clay-raised),
+    0 0 20px rgba(0, 206, 86, 0.4),
+    0 0 40px rgba(0, 206, 86, 0.2);
+  animation: uncommonGlow 2.5s ease-in-out infinite alternate;
+}
+
+.nest-card.working-rare {
+  box-shadow: 
+    var(--shadow-clay-raised),
+    0 0 25px rgba(255, 193, 7, 0.5),
+    0 0 50px rgba(255, 193, 7, 0.3),
+    0 0 75px rgba(255, 193, 7, 0.1);
+  animation: rareGlow 2s ease-in-out infinite alternate;
+}
+
+/* Glow Animations */
+@keyframes commonGlow {
+  0% {
+    box-shadow: 
+      var(--shadow-clay-raised),
+      0 0 20px rgba(74, 144, 226, 0.3),
+      0 0 40px rgba(74, 144, 226, 0.1);
+  }
+  100% {
+    box-shadow: 
+      var(--shadow-clay-raised),
+      0 0 30px rgba(74, 144, 226, 0.5),
+      0 0 60px rgba(74, 144, 226, 0.2);
+  }
+}
+
+@keyframes uncommonGlow {
+  0% {
+    box-shadow: 
+      var(--shadow-clay-raised),
+      0 0 20px rgba(0, 206, 86, 0.4),
+      0 0 40px rgba(0, 206, 86, 0.2);
+  }
+  100% {
+    box-shadow: 
+      var(--shadow-clay-raised),
+      0 0 35px rgba(0, 206, 86, 0.6),
+      0 0 70px rgba(0, 206, 86, 0.3);
+  }
+}
+
+@keyframes rareGlow {
+  0% {
+    box-shadow: 
+      var(--shadow-clay-raised),
+      0 0 25px rgba(255, 193, 7, 0.5),
+      0 0 50px rgba(255, 193, 7, 0.3),
+      0 0 75px rgba(255, 193, 7, 0.1);
+  }
+  100% {
+    box-shadow: 
+      var(--shadow-clay-raised),
+      0 0 40px rgba(255, 193, 7, 0.7),
+      0 0 80px rgba(255, 193, 7, 0.4),
+      0 0 120px rgba(255, 193, 7, 0.2);
+  }
+}
+
+.chicken-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.chicken-avatar {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
+.chicken-details {
+  flex: 1;
+  text-align: left;
+}
+
+.chicken-name {
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.chicken-level {
+  background: var(--accent-primary);
+  color: white;
+  padding: 2px 6px;
+  border-radius: var(--border-radius-sm);
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-medium);
+}
+
+/* Production Progress */
+.production-progress {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 15px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.progress-icon {
+  color: var(--accent-primary);
+}
+
+.egg-progress-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.egg-shape {
+  width: 80px;
+  height: 100px;
+  border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+  background: var(--clay-darker);
+  border: 3px solid var(--text-secondary);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-clay-inset);
+}
+
+.egg-fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, var(--accent-primary), var(--accent-secondary));
+  transition: height 0.5s ease;
+  border-radius: 0 0 50% 50% / 0 0 40% 40%;
+}
+
+.egg-timer {
+  position: relative;
+  z-index: 2;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--clay-darker);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-clay-inset);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  transition: width 0.5s ease;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Chicken Gauges */
+.chicken-gauges {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.gauge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+}
+
+.gauge-icon {
+  width: 16px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.gauge-icon.health {
+  color: #e74c3c;
+}
+
+.gauge-icon.fullness {
+  color: #3498db;
+}
+
+.gauge-bar {
+  flex: 1;
+  height: 6px;
+  background: var(--clay-darker);
+  border-radius: var(--border-radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-clay-inset);
+}
+
+.gauge-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: var(--border-radius-sm);
+}
+
+.gauge-fill.health {
+  background: linear-gradient(90deg, #e74c3c, #c0392b);
+}
+
+.gauge-fill.happiness {
+  background: linear-gradient(90deg, #f39c12, #e67e22);
+}
+
+.gauge-fill.fullness {
+  background: linear-gradient(90deg, #3498db, #2980b9);
+}
+
+.gauge-value {
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  min-width: 30px;
+  text-align: right;
+}
+
+.recall-button {
+  background: var(--clay-darker);
+  color: var(--text-primary);
+  border: 2px solid var(--text-secondary);
+  border-radius: var(--border-radius-md);
+  padding: 10px 16px;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.recall-button:hover {
+  background: var(--clay-elevated);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  transform: translateY(-1px);
+}
+
+/* Ready State */
+.nest-card.ready {
+  background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+  border: 2px solid #fdcb6e;
+  cursor: pointer;
+  min-height: 350px;
+}
+
+.nest-card.ready:hover {
+  transform: translateY(-3px);
+}
+
+.ready-egg-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.ready-egg {
+  font-size: 4rem;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+}
+
+.ready-title {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-bold);
+  color: #8b4513;
+  margin: 0 0 8px 0;
+}
+
+.ready-description {
+  color: #8b4513;
+  font-size: 0.95rem;
+  margin: 0 0 20px 0;
+  opacity: 0.8;
+}
+
+.collect-button {
+  background: linear-gradient(135deg, #00b894, #00a085);
+  color: white;
+  border: none;
+  border-radius: var(--border-radius-md);
+  padding: 15px 25px;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-bold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 184, 148, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.collect-button:hover {
+  background: linear-gradient(135deg, #00a085, #00b894);
+  box-shadow: 0 6px 20px rgba(0, 184, 148, 0.4);
+}
+
+/* Error State */
+.nest-card.error {
+  background: #ffebee;
+  border: 2px solid #f44336;
+  color: #c62828;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .nest-card {
+    padding: 15px;
+    min-height: 250px;
+  }
+  
+  .nest-card.working {
+    min-height: 350px;
+  }
+  
+  .nest-card.ready {
+    min-height: 300px;
+  }
+  
+  .chicken-avatar {
+    font-size: 2rem;
+  }
+  
+  .nest-icon {
+    font-size: 2.5rem;
+  }
+  
+  .ready-egg {
+    font-size: 3rem;
+  }
+  
+  .egg-shape {
+    width: 60px;
+    height: 80px;
+  }
+  
+  .collect-button,
+  .assign-button,
+  .unlock-button {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .nest-card {
+    padding: 12px;
+    min-height: 220px;
+  }
+  
+  .chicken-info {
+    flex-direction: column;
+    text-align: center;
+    gap: 8px;
+  }
+  
+  .chicken-details {
+    text-align: center;
+  }
+  
+  .chicken-gauges {
+    gap: 6px;
+  }
+  
+  .gauge {
+    font-size: 0.8rem;
+  }
+} 

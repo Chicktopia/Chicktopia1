@@ -1,0 +1,603 @@
+/* DetailsPanel Component Styles - Claymorphism Design */
+
+/* Full-Screen Modal Overlay with Flexbox Centering */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  align-items: center; /* Vertical centering */
+  justify-content: center; /* Horizontal centering */
+  background: rgba(107, 91, 71, 0.3); /* Semi-transparent backdrop */
+  backdrop-filter: blur(8px); /* Blur effect */
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+  z-index: 999; /* Above all content, below bottom bar */
+  cursor: pointer; /* Indicate clickable area */
+}
+
+/* Main Details Modal - Centered by Flexbox Parent */
+.details-modal {
+  position: relative; /* Not fixed anymore - centered by flexbox parent */
+  width: 90%;
+  max-width: 500px; /* Maximum width for desktop */
+  max-height: 80vh; /* Maximum height to fit on screen */
+  background: var(--clay-base);
+  border-radius: var(--border-radius-xl); /* Rounded corners for modal */
+  box-shadow: 
+    0 20px 60px rgba(107, 91, 71, 0.3),
+    var(--shadow-clay-raised); /* Enhanced shadow for depth */
+  cursor: default; /* Normal cursor inside modal */
+  
+  /* Flex layout for modal structure */
+  display: flex;
+  flex-direction: column;
+  
+  /* Prevent content overflow */
+  overflow: hidden;
+}
+
+/* Modal Header */
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(107, 91, 71, 0.1);
+  background: var(--clay-lighter);
+  flex-shrink: 0; /* Prevent header from shrinking */
+  border-radius: var(--border-radius-xl) var(--border-radius-xl) 0 0; /* Rounded top corners */
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.close-btn {
+  width: 36px;
+  height: 36px;
+  background: var(--clay-darker);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+}
+
+.close-btn:hover {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.close-btn:active {
+  transform: scale(0.95);
+  box-shadow: var(--shadow-clay-pressed);
+}
+
+/* Modal Content - Scrollable */
+.modal-content {
+  flex: 1; /* Take remaining space */
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 24px;
+  
+  /* Custom scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--clay-darker) var(--clay-lighter);
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: var(--clay-lighter);
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: var(--clay-darker);
+  border-radius: 3px;
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Chicken Avatar Section */
+.chicken-avatar-section {
+  margin-bottom: 24px;
+}
+
+.avatar-container {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-raised);
+}
+
+.avatar-emoji {
+  font-size: 3rem;
+  line-height: 1;
+  animation: gentle-float 4s ease-in-out infinite;
+}
+
+.avatar-info {
+  flex: 1;
+}
+
+.chicken-detail-name {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin: 0 0 4px 0;
+}
+
+.chicken-species-name {
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  margin: 0 0 8px 0;
+  font-style: italic;
+}
+
+.chicken-detail-level {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  background: var(--clay-darker);
+  color: var(--bg-primary);
+  padding: 4px 12px;
+  border-radius: var(--border-radius-sm);
+  display: inline-block;
+}
+
+/* Rarity Tag Styles */
+.rarity-tag {
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-bold);
+  padding: 3px 8px;
+  border-radius: var(--border-radius-sm);
+  display: inline-block;
+  margin: 4px 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.rarity-tag.rarity-common {
+  background: linear-gradient(135deg, #74b0e2, #4a90e2);
+  color: white;
+}
+
+.rarity-tag.rarity-uncommon {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+}
+
+.rarity-tag.rarity-rare {
+  background: linear-gradient(135deg, #FFD700, #FFC107);
+  color: #333;
+}
+
+.rarity-tag.rarity-epic {
+  background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+  color: white;
+}
+
+.rarity-tag.rarity-legendary {
+  background: linear-gradient(135deg, #FF5722, #E64A19);
+  color: white;
+  box-shadow: 0 0 10px rgba(255, 87, 34, 0.5);
+}
+
+/* XP Progress Bar Styles */
+.xp-progress-container {
+  margin-top: 12px;
+}
+
+.xp-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--clay-darker);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: inset 0 2px 4px rgba(107, 91, 71, 0.3);
+}
+
+.xp-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #66BB6A, #4CAF50);
+  border-radius: 4px;
+  transition: width 0.5s ease;
+}
+
+.xp-text {
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  margin-top: 4px;
+  display: block;
+}
+
+/* Status Gauges Section */
+.status-gauges-section {
+  margin-bottom: 24px;
+}
+
+.status-gauges-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+/* Info Section */
+.info-section {
+  margin-bottom: 24px;
+}
+
+.section-title {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0 0 16px 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--clay-darker);
+}
+
+.info-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: 1fr 1fr; /* Two columns */
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-clay-raised);
+}
+
+.info-label {
+  font-size: 0.85rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-value {
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+/* Stat with progress bar */
+.stat-with-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mini-progress-bar {
+  width: 100%;
+  height: 4px;
+  background: var(--clay-darker);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.mini-progress-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+
+.mini-progress-fill.happiness {
+  background: linear-gradient(90deg, #FFA726, #FF8A65);
+}
+
+.mini-progress-fill.health {
+  background: linear-gradient(90deg, #4CAF50, #66BB6A);
+}
+
+.mini-progress-fill.fullness {
+  background: linear-gradient(90deg, #9C27B0, #E1BEE7);
+}
+
+/* Stats Section */
+.stats-section {
+  margin-bottom: 24px;
+}
+
+.stats-horizontal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.stat-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 12px;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+}
+
+.stat-block:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.stat-block .stat-icon {
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 8px;
+  filter: drop-shadow(0 2px 4px rgba(107, 91, 71, 0.3));
+}
+
+.stat-block .stat-value {
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--bg-primary);
+  background: var(--clay-darker);
+  padding: 6px 10px;
+  border-radius: var(--border-radius-sm);
+  margin-bottom: 8px;
+  min-width: 40px;
+  text-align: center;
+  box-shadow: var(--shadow-clay-raised);
+}
+
+.stat-block .stat-label {
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-secondary);
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  line-height: 1.2;
+}
+
+/* No Chicken Selected State */
+.no-chicken-selected {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.no-chicken-emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 16px;
+}
+
+.no-chicken-selected p {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Modal Actions */
+.modal-actions {
+  padding: 20px 24px;
+  border-top: 1px solid rgba(107, 91, 71, 0.1);
+  background: var(--clay-lighter);
+  flex-shrink: 0; /* Prevent actions from shrinking */
+  border-radius: 0 0 var(--border-radius-xl) var(--border-radius-xl); /* Rounded bottom corners */
+  
+  /* Grid layout for action buttons */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.action-btn {
+  padding: 12px 16px;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  border: none;
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  
+  /* Claymorphism styling */
+  box-shadow: var(--shadow-clay-raised);
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.action-btn:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-clay-pressed);
+}
+
+.action-btn span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .details-modal {
+    width: 95%; /* Slightly wider on tablet */
+    max-width: 450px; /* Increased max-width for tablet */
+    max-height: 85vh; /* More height on tablet */
+  }
+  
+  .modal-header {
+    padding: 16px 20px;
+  }
+  
+  .modal-title {
+    font-size: 1.25rem;
+  }
+  
+  .close-btn {
+    width: 32px;
+    height: 32px;
+    font-size: 0.8rem;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .avatar-container {
+    padding: 16px;
+  }
+  
+  .avatar-emoji {
+    font-size: 2.5rem;
+  }
+  
+  .chicken-detail-name {
+    font-size: 1.25rem;
+  }
+  
+  .status-gauges-grid {
+    grid-template-columns: 1fr; /* Single column on tablet */
+    gap: 8px;
+  }
+
+  .stats-horizontal-grid {
+    grid-template-columns: 1fr; /* Single column on tablet */
+    gap: 12px;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+  
+  .modal-actions {
+    padding: 16px 20px;
+    grid-template-columns: 1fr; /* Single column for actions */
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .details-modal {
+    width: 98%; /* Nearly full width on mobile */
+    max-width: none;
+    max-height: 90vh; /* More height on mobile */
+    margin: 0 1%; /* Small margin on sides */
+  }
+  
+  .modal-header {
+    padding: 12px 16px;
+  }
+  
+  .modal-title {
+    font-size: 1.1rem;
+  }
+  
+  .modal-content {
+    padding: 16px;
+  }
+  
+  .avatar-container {
+    padding: 12px;
+    gap: 12px;
+  }
+  
+  .avatar-emoji {
+    font-size: 2rem;
+  }
+  
+  .chicken-detail-name {
+    font-size: 1.1rem;
+  }
+  
+  .chicken-detail-level {
+    font-size: 0.9rem;
+    padding: 3px 8px;
+  }
+  
+  .status-gauges-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 6px;
+  }
+
+  .stats-horizontal-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+    gap: 10px;
+  }
+
+  .stat-block {
+    padding: 12px 8px;
+  }
+
+  .stat-block .stat-icon {
+    font-size: 1.5rem;
+  }
+
+  .stat-block .stat-value {
+    font-size: 0.9rem;
+    padding: 5px 8px;
+  }
+
+  .stat-block .stat-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.6px;
+  }
+
+  .info-item {
+    padding: 10px;
+  }
+  
+  .action-btn {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}
+
+/* Accessibility improvements */
+.close-btn:focus {
+  outline: 3px solid rgba(107, 91, 71, 0.3);
+  outline-offset: 2px;
+}
+
+.action-btn:focus {
+  outline: 2px solid rgba(107, 91, 71, 0.3);
+  outline-offset: 2px;
+}
+
+/* Animation for content appearance */
+@keyframes modalContentFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-content > * {
+  animation: modalContentFadeIn 0.4s ease-out;
+} 

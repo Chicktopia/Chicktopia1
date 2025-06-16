@@ -1,0 +1,271 @@
+/* GameModal Component Styles */
+/* Beautiful claymorphism modal to replace browser alerts */
+
+.game-modal-backdrop {
+  /* Full screen overlay with blur effect */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(139, 125, 111, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  animation: fade-in 0.3s ease-out;
+}
+
+.game-modal {
+  /* Main modal container with claymorphism design */
+  background: var(--clay-base);
+  border-radius: 32px;
+  padding: 32px;
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  
+  /* Prominent raised claymorphism effect */
+  box-shadow: 
+    12px 12px 24px rgba(139, 125, 111, 0.5),
+    -12px -12px 24px rgba(255, 255, 255, 0.9),
+    0 0 40px rgba(139, 125, 111, 0.2);
+    
+  animation: modal-appear 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+}
+
+/* Modal header styling */
+.modal-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid rgba(139, 125, 111, 0.1);
+}
+
+.modal-icon {
+  font-size: 32px;
+  line-height: 1;
+  filter: drop-shadow(2px 2px 4px rgba(139, 125, 111, 0.3));
+}
+
+.modal-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 24px;
+  color: var(--clay-dark);
+  margin: 0;
+  text-shadow: 1px 1px 2px rgba(139, 125, 111, 0.2);
+}
+
+/* Modal content styling */
+.modal-content {
+  margin-bottom: 32px;
+}
+
+.modal-message {
+  font-family: 'Lilita One', cursive;
+  font-size: 16px;
+  color: var(--clay-dark);
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.9;
+}
+
+/* Modal footer styling */
+.modal-footer {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.modal-button {
+  background: linear-gradient(145deg, #e8d5c4, #c9b8a5);
+  border: none;
+  border-radius: 20px;
+  padding: 16px 32px;
+  font-family: 'Lilita One', cursive;
+  font-size: 18px;
+  color: var(--clay-dark);
+  cursor: pointer;
+  min-width: 120px;
+  
+  /* Prominent button effect */
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.9);
+    
+  transition: all 0.2s ease;
+}
+
+.modal-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    8px 8px 16px rgba(139, 125, 111, 0.6),
+    -8px -8px 16px rgba(255, 255, 255, 1);
+}
+
+.modal-button:active {
+  transform: translateY(0);
+  box-shadow: 
+    4px 4px 8px rgba(139, 125, 111, 0.4),
+    -4px -4px 8px rgba(255, 255, 255, 0.8);
+}
+
+.modal-button:focus {
+  outline: none;
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.9),
+    0 0 0 3px rgba(255, 215, 0, 0.3);
+}
+
+/* Cancel button styling */
+.modal-button.cancel {
+  background: linear-gradient(145deg, #d3c4b3, #c9b8a5);
+  color: var(--clay-dark);
+  
+  /* Subtle raised effect */
+  box-shadow: 
+    4px 4px 8px rgba(139, 125, 111, 0.3),
+    -4px -4px 8px rgba(255, 255, 255, 0.7);
+}
+
+.modal-button.cancel:hover {
+  box-shadow: 
+    2px 2px 4px rgba(139, 125, 111, 0.3),
+    -2px -2px 4px rgba(255, 255, 255, 0.7);
+}
+
+/* Confirm button styling (enhanced green) */
+.modal-button.confirm {
+  background: linear-gradient(145deg, #4CAF50, #45a049);
+  color: white;
+  
+  /* More prominent raised effect */
+  box-shadow: 
+    8px 8px 16px rgba(139, 125, 111, 0.5),
+    -8px -8px 16px rgba(255, 255, 255, 0.9);
+}
+
+.modal-button.confirm:hover {
+  transform: translateY(-3px);
+  box-shadow: 
+    10px 10px 20px rgba(139, 125, 111, 0.6),
+    -10px -10px 20px rgba(255, 255, 255, 1);
+}
+
+/* Type-specific styling */
+.game-modal.success .modal-header {
+  border-bottom-color: rgba(46, 139, 87, 0.2);
+}
+
+.game-modal.success .modal-title {
+  color: #2E8B57;
+}
+
+.game-modal.warning .modal-header {
+  border-bottom-color: rgba(255, 140, 0, 0.2);
+}
+
+.game-modal.warning .modal-title {
+  color: #FF8C00;
+}
+
+.game-modal.error .modal-header {
+  border-bottom-color: rgba(220, 20, 60, 0.2);
+}
+
+.game-modal.error .modal-title {
+  color: #DC143C;
+}
+
+.game-modal.info .modal-header {
+  border-bottom-color: rgba(65, 105, 225, 0.2);
+}
+
+.game-modal.info .modal-title {
+  color: #4169E1;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modal-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .game-modal {
+    padding: 24px;
+    margin: 20px;
+    border-radius: 24px;
+  }
+  
+  .modal-icon {
+    font-size: 28px;
+  }
+  
+  .modal-title {
+    font-size: 20px;
+  }
+  
+  .modal-message {
+    font-size: 14px;
+  }
+  
+  .modal-button {
+    font-size: 16px;
+    padding: 14px 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .game-modal {
+    padding: 20px;
+    margin: 16px;
+    border-radius: 20px;
+  }
+  
+  .modal-header {
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+  
+  .modal-icon {
+    font-size: 24px;
+  }
+  
+  .modal-title {
+    font-size: 18px;
+  }
+  
+  .modal-message {
+    font-size: 13px;
+  }
+  
+  .modal-button {
+    font-size: 14px;
+    padding: 12px 24px;
+    min-width: 100px;
+  }
+} 

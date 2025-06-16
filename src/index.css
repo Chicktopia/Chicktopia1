@@ -1,0 +1,269 @@
+/* Google Fonts - Lilita One imported via HTML link tag */
+
+/* CSS Custom Properties for Claymorphism Design */
+:root {
+  /* Color Palette - Earthen Claymorphism */
+  --bg-primary: #F6E5C7; /* Sandy beige background */
+  --clay-base: #D3C4B3; /* Warm light brown for cards */
+  --clay-darker: #B8A692; /* Darker clay tone */
+  --clay-lighter: #E5D8C8; /* Lighter clay highlight */
+  --text-primary: #6B5B47; /* Warm dark brown text */
+  --text-secondary: #8B7D6B; /* Softer brown text */
+  --accent-warm: #E8D5B7; /* Warm accent */
+  --shadow-primary: rgba(107, 91, 71, 0.15); /* Soft shadow */
+  --shadow-inset: rgba(255, 255, 255, 0.3); /* Inner highlight */
+  
+  /* Typography */
+  --font-family: 'Lilita One', cursive;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Spacing and Layout */
+  --border-radius-sm: 12px;
+  --border-radius-md: 20px;
+  --border-radius-lg: 28px;
+  --border-radius-xl: 36px;
+  
+  /* Shadows for Claymorphism Effect */
+  --shadow-clay-raised: 
+    8px 8px 16px var(--shadow-primary),
+    -4px -4px 12px var(--shadow-inset);
+  --shadow-clay-pressed: 
+    inset 4px 4px 8px var(--shadow-primary),
+    inset -2px -2px 6px var(--shadow-inset);
+  --shadow-clay-hover: 
+    12px 12px 24px var(--shadow-primary),
+    -6px -6px 18px var(--shadow-inset);
+}
+
+/* Global Reset and Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.6;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  overflow-x: hidden;
+  /* Ensure body doesn't interfere with fixed positioning */
+  position: relative;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+  color: var(--text-primary);
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p {
+  margin-bottom: 1em;
+  color: var(--text-secondary);
+}
+
+/* Button Base Styles - Claymorphism */
+button {
+  font-family: inherit;
+  font-weight: var(--font-weight-medium);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: var(--clay-base);
+  color: var(--text-primary);
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-clay-raised);
+  position: relative;
+  overflow: hidden;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+button:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-clay-pressed);
+}
+
+/* Disabled state */
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: var(--shadow-clay-raised);
+}
+
+/* Input Styles - Claymorphism */
+input, textarea, select {
+  font-family: inherit;
+  border: none;
+  background: var(--clay-lighter);
+  color: var(--text-primary);
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-clay-pressed);
+  padding: 12px 16px;
+  transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  box-shadow: 
+    var(--shadow-clay-pressed),
+    0 0 0 3px rgba(107, 91, 71, 0.1);
+}
+
+/* Link Styles */
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--text-secondary);
+}
+
+/* Utility Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.font-light { font-weight: var(--font-weight-light); }
+.font-normal { font-weight: var(--font-weight-normal); }
+.font-medium { font-weight: var(--font-weight-medium); }
+.font-semibold { font-weight: var(--font-weight-semibold); }
+.font-bold { font-weight: var(--font-weight-bold); }
+
+/* Clay Card Base Class */
+.clay-card {
+  background: var(--clay-base);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-raised);
+  padding: 24px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.clay-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+/* Clay Button Variants */
+.clay-btn-primary {
+  background: var(--clay-darker);
+  color: var(--bg-primary);
+  padding: 12px 24px;
+  font-weight: var(--font-weight-semibold);
+}
+
+.clay-btn-secondary {
+  background: var(--clay-lighter);
+  color: var(--text-primary);
+  padding: 8px 16px;
+}
+
+.clay-btn-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.25rem; }
+  
+  .clay-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+  
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.5rem; }
+  
+  .clay-card {
+    padding: 16px;
+  }
+}
+
+/* Scrollbar Styling for Webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  }
+
+::-webkit-scrollbar-track {
+  background: var(--clay-lighter);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--clay-darker);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* Animation keyframes for subtle effects */
+@keyframes gentle-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes soft-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.8; }
+}
+
+/* Selection styling */
+::selection {
+  background: var(--clay-darker);
+  color: var(--bg-primary);
+}

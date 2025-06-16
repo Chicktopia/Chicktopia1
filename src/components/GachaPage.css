@@ -1,0 +1,1468 @@
+/* GachaPage Component Styles - Beautiful Claymorphism Layout */
+
+.gacha-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: calc(100vh - 120px);
+}
+
+/* Header Area - Title and Tickets */
+.gacha-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1000px;
+  padding: 0 1rem;
+}
+
+.gacha-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 3rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(45deg, #8B7D6B, #D4AF37, #8B7D6B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+.tickets-display {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.ticket-balance {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 1.5rem;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-raised);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ticket-icon {
+  font-size: 1.5rem;
+}
+
+.ticket-count {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.8rem;
+  color: var(--text-primary);
+  font-weight: 400;
+}
+
+.ticket-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.ticket-add-btn {
+  width: 50px;
+  height: 50px;
+  background: var(--clay-darker);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+}
+
+.ticket-add-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+/* Pool Selection Area */
+.pool-selection {
+  width: 100%;
+  max-width: 800px;
+}
+
+.pool-posters {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.pool-poster {
+  width: 300px;
+  height: 400px;
+  background: var(--clay-base);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-clay-raised);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.pool-poster:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.pool-poster.active {
+  border-color: #D4AF37;
+  box-shadow: 
+    var(--shadow-clay-hover),
+    0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.poster-image {
+  flex: 1;
+  background: linear-gradient(135deg, var(--clay-lighter), var(--clay-darker));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.poster-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.poster-emoji {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+.poster-sparkles {
+  display: flex;
+  gap: 1rem;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.poster-sparkles span {
+  font-size: 1.5rem;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.poster-sparkles span:nth-child(2) {
+  animation-delay: 0.7s;
+}
+
+.poster-sparkles span:nth-child(3) {
+  animation-delay: 1.4s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.poster-info {
+  padding: 1.5rem;
+  text-align: center;
+  background: var(--clay-lighter);
+}
+
+.poster-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0 0 0.5rem 0;
+}
+
+.poster-subtitle {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-weight: var(--font-weight-medium);
+}
+
+/* Gacha Machine Section */
+.gacha-machine-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Beautiful Gacha Machine */
+.gacha-machine {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.machine-top {
+  margin-bottom: -20px;
+  z-index: 3;
+}
+
+.machine-dome {
+  width: 200px;
+  height: 100px;
+  background: linear-gradient(180deg, var(--clay-lighter), var(--clay-base));
+  border-radius: 100px 100px 0 0;
+  box-shadow: 
+    var(--shadow-clay-raised),
+    inset 0 -10px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.dome-glass {
+  width: 160px;
+  height: 80px;
+  background: linear-gradient(180deg, 
+    rgba(255, 255, 255, 0.3), 
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 80px 80px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.floating-orbs {
+  display: flex;
+  gap: 1rem;
+  position: relative;
+}
+
+.orb {
+  font-size: 1.5rem;
+  animation: floatOrb 4s ease-in-out infinite;
+}
+
+.orb-1 { animation-delay: 0s; }
+.orb-2 { animation-delay: 1.3s; }
+.orb-3 { animation-delay: 2.6s; }
+
+@keyframes floatOrb {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-15px) rotate(120deg); }
+  66% { transform: translateY(-5px) rotate(240deg); }
+}
+
+.machine-body {
+  width: 280px;
+  height: 200px;
+  background: var(--clay-base);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-clay-raised);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 1.5rem;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.machine-screen {
+  flex: 1;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.screen-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.screen-text {
+  color: #4CAF50;
+  font-family: 'Lilita One', cursive;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+.screen-indicator {
+  width: 8px;
+  height: 8px;
+  background: #4CAF50;
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(76, 175, 80, 0.7);
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+.machine-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.detail-lights {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.light {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  animation: blink 2s ease-in-out infinite;
+}
+
+.light.red {
+  background: #ff4444;
+  box-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
+.light.green {
+  background: #44ff44;
+  box-shadow: 0 0 10px rgba(68, 255, 68, 0.5);
+  animation-delay: 0.7s;
+}
+
+.light.blue {
+  background: #4444ff;
+  box-shadow: 0 0 10px rgba(68, 68, 255, 0.5);
+  animation-delay: 1.4s;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 0.3; }
+  25% { opacity: 1; }
+}
+
+.machine-logo {
+  font-size: 2rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.machine-base {
+  width: 320px;
+  height: 80px;
+  background: var(--clay-darker);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-raised);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -10px;
+  z-index: 1;
+}
+
+.dispenser-slot {
+  width: 200px;
+  height: 40px;
+  background: var(--clay-base);
+  border-radius: var(--border-radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slot-opening {
+  width: 160px;
+  height: 8px;
+  background: #000;
+  border-radius: 4px;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Draw Action Buttons */
+.draw-buttons {
+  display: flex;
+  gap: 2rem;
+}
+
+.draw-btn {
+  width: 200px;
+  min-height: 120px;
+  background: var(--clay-base);
+  border: none;
+  border-radius: var(--border-radius-xl);
+  cursor: pointer;
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.draw-btn:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.draw-btn:active {
+  transform: translateY(-2px);
+}
+
+.single-draw {
+  background: linear-gradient(135deg, var(--clay-lighter), var(--clay-base));
+  border: 2px solid rgba(76, 175, 80, 0.3);
+}
+
+.ten-draw {
+  background: linear-gradient(135deg, var(--clay-base), var(--clay-darker));
+  border: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+.btn-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.btn-cost {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.btn-guarantee {
+  font-size: 0.8rem;
+  color: #D4AF37;
+  font-weight: var(--font-weight-semibold);
+  background: rgba(212, 175, 55, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  margin-top: 0.25rem;
+}
+
+/* Bottom Section */
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.featured-rewards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.rewards-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.reward-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.reward-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--clay-lighter);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  box-shadow: var(--shadow-clay-raised);
+  transition: transform 0.3s ease;
+}
+
+.reward-icon:hover {
+  transform: scale(1.1);
+}
+
+.action-buttons {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--clay-lighter);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-clay-hover);
+  color: var(--text-primary);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .gacha-page {
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .gacha-header {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+  
+  .gacha-title {
+    font-size: 2.5rem;
+  }
+  
+  .pool-posters {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  
+  .pool-poster {
+    width: 280px;
+    height: 360px;
+  }
+  
+  .machine-body {
+    width: 250px;
+    height: 180px;
+  }
+  
+  .machine-base {
+    width: 280px;
+  }
+  
+  .draw-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .draw-btn {
+    width: 250px;
+  }
+  
+  .action-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .gacha-title {
+    font-size: 2rem;
+  }
+  
+  .pool-poster {
+    width: 260px;
+    height: 340px;
+  }
+  
+  .machine-body {
+    width: 220px;
+    height: 160px;
+  }
+  
+  .machine-base {
+    width: 250px;
+  }
+  
+  .draw-btn {
+    width: 220px;
+    min-height: 100px;
+  }
+  
+  .reward-icons {
+    gap: 0.75rem;
+  }
+  
+  .reward-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.5rem;
+  }
+}
+
+/* GachaPage Component - Immersive Card-Summoning Experience */
+
+/* Full-Screen Stage Layout */
+.gacha-stage {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Lilita One', cursive;
+}
+
+/* Global Font Override for Gacha Page */
+.gacha-stage *,
+.gacha-stage *::before,
+.gacha-stage *::after {
+  font-family: 'Lilita One', cursive !important;
+}
+
+/* Immersive Background */
+.stage-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.stars-layer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+    radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+  background-repeat: repeat;
+  background-size: 200px 100px;
+  animation: twinkleStars 20s linear infinite;
+}
+
+@keyframes twinkleStars {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-100px); }
+}
+
+.gradient-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(139, 125, 107, 0.1) 0%,
+    rgba(75, 85, 99, 0.3) 50%,
+    rgba(31, 41, 55, 0.8) 100%
+  );
+  z-index: -1;
+}
+
+/* Pool Selector - Top Left */
+.pool-selector-corner {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  z-index: 10;
+}
+
+.pool-dropdown {
+  position: relative;
+}
+
+.pool-current {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: var(--clay-base);
+  border: none;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+  min-width: 200px;
+}
+
+.pool-current:hover {
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.pool-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.pool-name {
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.pool-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.pool-options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 0.5rem;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 
+    var(--shadow-clay-raised),
+    0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  z-index: 20;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.pool-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: left;
+}
+
+.pool-option:hover {
+  background: var(--clay-darker);
+}
+
+.pool-option.active {
+  background: rgba(212, 175, 55, 0.2);
+}
+
+/* Top Center - Ticket Display */
+.tickets-display-top {
+  position: absolute;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.ticket-counter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-raised);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ticket-icon {
+  font-size: 1.5rem;
+  color: #D4AF37;
+  filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+}
+
+.ticket-count {
+  font-size: 2rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  min-width: 3rem;
+  text-align: center;
+}
+
+.ticket-add-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--clay-darker);
+  color: var(--bg-primary);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+}
+
+/* The Centerpiece - Summoning Altar */
+.summoning-altar {
+  position: relative;
+  z-index: 5;
+}
+
+/* Tap to Summon Text */
+.tap-to-summon {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.2rem;
+  font-weight: 400;
+  font-family: 'Lilita One', cursive !important;
+  color: var(--text-primary);
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(255, 255, 255, 0.3);
+  z-index: 2;
+  pointer-events: none;
+  text-align: center;
+}
+
+.summoning-crystal {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.3), transparent 70%);
+  box-shadow: 
+    0 0 50px rgba(212, 175, 55, 0.4),
+    inset 0 0 50px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.summoning-crystal:hover {
+  transform: scale(1.05);
+  box-shadow: 
+    0 0 60px rgba(212, 175, 55, 0.6),
+    inset 0 0 60px rgba(255, 255, 255, 0.2);
+  background: radial-gradient(circle, rgba(212, 175, 55, 0.4), transparent 70%);
+}
+
+.crystal-core {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: linear-gradient(
+    45deg,
+    rgba(212, 175, 55, 0.3),
+    rgba(139, 125, 107, 0.4),
+    rgba(212, 175, 55, 0.3)
+  );
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 0 30px rgba(212, 175, 55, 0.4),
+    inset 0 0 30px rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(212, 175, 55, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Central Egg Icon */
+.crystal-egg {
+  font-size: 4rem;
+  color: #D4AF37;
+  filter: drop-shadow(0 0 20px rgba(212, 175, 55, 0.8));
+  z-index: 1;
+  position: relative;
+}
+
+.crystal-egg svg {
+  filter: drop-shadow(0 0 30px rgba(212, 175, 55, 1));
+}
+
+.crystal-glow {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212, 175, 55, 0.6) 0%,
+    rgba(212, 175, 55, 0.2) 50%,
+    transparent 100%
+  );
+  filter: blur(20px);
+  z-index: 2;
+}
+
+.floating-orb {
+  position: absolute;
+  font-size: 1.5rem;
+  color: #FFD700;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+  pointer-events: none;
+  z-index: 3;
+}
+
+.floating-orb svg {
+  filter: drop-shadow(0 0 15px rgba(255, 215, 0, 1));
+}
+
+.crystal-label {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  font-family: 'Lilita One', cursive;
+  font-weight: 400;
+  text-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.5),
+    0 0 10px rgba(212, 175, 55, 0.3);
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Bottom Center - Main Action Buttons */
+.main-actions {
+  display: flex;
+  gap: 2rem;
+  z-index: 10;
+}
+
+.draw-btn {
+  position: relative;
+  width: 200px;
+  min-height: 100px;
+  background: var(--clay-base);
+  border: none;
+  border-radius: var(--border-radius-xl);
+  cursor: pointer;
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.draw-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+.single-draw {
+  background: linear-gradient(135deg, var(--clay-lighter), var(--clay-base));
+  border: 2px solid rgba(76, 175, 80, 0.3);
+}
+
+.ten-draw {
+  background: linear-gradient(135deg, var(--clay-base), var(--clay-darker));
+  border: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.btn-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  text-align: center;
+  padding: 1rem;
+  z-index: 2;
+  position: relative;
+}
+
+.btn-title {
+  font-size: 1.4rem;
+  font-weight: 400;
+  color: var(--text-primary);
+}
+
+.btn-cost {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-family: 'Inter', sans-serif;
+  font-weight: var(--font-weight-medium);
+}
+
+.btn-guarantee {
+  font-size: 0.8rem;
+  color: #D4AF37;
+  font-weight: var(--font-weight-semibold);
+  background: rgba(212, 175, 55, 0.1);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius-sm);
+  margin-top: 0.25rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-glow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(76, 175, 80, 0.1),
+    transparent
+  );
+  border-radius: var(--border-radius-xl);
+  z-index: 1;
+}
+
+.btn-glow.golden {
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(212, 175, 55, 0.1),
+    transparent
+  );
+}
+
+/* Main UI Container */
+.main-ui {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+/* Central Content Container */
+.central-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
+  z-index: 1;
+}
+
+.summoning-ceremony {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.light-beam {
+  position: absolute;
+  font-size: 3rem;
+  color: #FFD700;
+  filter: drop-shadow(0 0 30px #FFD700);
+}
+
+.light-beam svg {
+  filter: drop-shadow(0 0 40px #FFD700);
+}
+
+.card-reveal-stage {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.5rem;
+  max-width: 900px;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  justify-items: center;
+}
+
+.reveal-card {
+  position: relative;
+  width: 150px;
+  height: 220px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease;
+}
+
+.reveal-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.card-rarity-glow {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: var(--border-radius-lg);
+  filter: blur(15px);
+  z-index: -1;
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-front {
+  background: linear-gradient(135deg, #6b5b47, #8b7355);
+  color: white;
+  z-index: 2;
+}
+
+.card-back {
+  background: radial-gradient(circle at center, var(--rarity-color, #4CAF50), rgba(0, 0, 0, 0.8));
+  color: white;
+  transform: rotateY(180deg);
+  z-index: 1;
+  overflow: hidden;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+.card-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  opacity: 0.8;
+}
+
+.result-egg {
+  font-size: 4.5rem;
+  margin-bottom: 0.75rem;
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.6));
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-name {
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: 'Lilita One', cursive;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  line-height: 1.2;
+}
+
+.card-rarity {
+  font-size: 0.75rem;
+  font-weight: bold;
+  font-family: 'Lilita One', cursive;
+  text-transform: uppercase;
+  padding: 0.3rem 0.8rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.claim-all-btn {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 8px 32px rgba(76, 175, 80, 0.3);
+  transition: all 0.3s ease;
+  font-family: 'Lilita One', cursive;
+}
+
+.claim-all-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(76, 175, 80, 0.4);
+}
+
+.claim-icon {
+  font-size: 1.5rem;
+}
+
+/* Action Buttons - Top Right */
+.action-buttons-corner {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 1rem;
+  z-index: 10;
+}
+
+.corner-btn {
+  width: 50px;
+  height: 50px;
+  background: var(--clay-base);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+}
+
+.corner-btn:hover {
+  color: var(--text-primary);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+/* Light Beam Animation */
+.light-beam-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 1500;
+}
+
+.light-beam {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  pointer-events: none;
+}
+
+.beam-trail {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.8) 0%, rgba(255, 215, 0, 0.4) 50%, transparent 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 20px rgba(255, 215, 0, 0.8),
+    0 0 40px rgba(255, 215, 0, 0.6),
+    0 0 60px rgba(255, 215, 0, 0.4);
+}
+
+.beam-star {
+  font-size: 2rem;
+  color: #FFD700;
+  filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.8));
+  animation: sparkle 0.5s ease-in-out infinite alternate;
+}
+
+@keyframes sparkle {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.2) rotate(180deg); }
+}
+
+/* Card Reveal Ceremony - Full Screen Overlay */
+.card-reveal-ceremony {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 2rem;
+}
+
+.cards-grid.single-pull {
+  grid-template-columns: 1fr;
+  max-width: 200px;
+}
+
+.reveal-card {
+  position: relative;
+  width: 150px;
+  height: 200px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  border-radius: 12px;
+}
+
+.reveal-card.flipped {
+  transform: rotateY(180deg);
+}
+
+/* Responsive Design for Card Reveal */
+@media (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    max-width: 90vw;
+  }
+
+  .cards-grid.single-pull {
+    grid-template-columns: 1fr;
+    max-width: 180px;
+  }
+
+  .reveal-card {
+    width: 120px;
+    height: 160px;
+  }
+
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .result-egg {
+    font-size: 3.5rem;
+  }
+
+  .card-name {
+    font-size: 0.9rem;
+  }
+
+  .card-rarity {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .claim-all-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+
+  .reveal-card {
+    width: 100px;
+    height: 140px;
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+  }
+
+  .result-egg {
+    font-size: 3rem;
+  }
+
+  .card-name {
+    font-size: 0.8rem;
+  }
+
+  .card-rarity {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.5rem;
+  }
+} 

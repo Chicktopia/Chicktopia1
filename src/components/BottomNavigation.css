@@ -1,0 +1,179 @@
+/* BottomNavigation Component Styles - Enhanced Earthen Claymorphism Design */
+
+/* Main Navigation Bar - Pill-Shaped Container */
+.bottom-navigation {
+  /* --- CRITICAL FIXED POSITIONING --- */
+  position: fixed !important; /* Ensure fixed positioning */
+  bottom: 20px; /* Slightly elevated from bottom */
+  left: 50%; /* Center horizontally */
+  transform: translateX(-50%); /* Perfect centering */
+  z-index: 10000; /* High z-index to stay on top */
+  
+  /* --- PILL-SHAPED CONTAINER STRUCTURE --- */
+  display: flex;
+  align-items: center;
+  justify-content: space-around; /* Evenly distribute buttons */
+  padding: 16px 20px; /* Padding inside the pill */
+  
+  /* --- BEAUTIFUL PILL SHAPE --- */
+  background: #D3C4B3; /* Warm earthy clay tone */
+  border-radius: 50px; /* Perfect pill shape */
+  width: auto;
+  max-width: 420px; /* Maximum width for desktop */
+  min-width: 350px; /* Minimum width to fit all buttons */
+  
+  /* --- ENHANCED CLAY SHADOW EFFECTS --- */
+  box-shadow: 
+    0 8px 32px rgba(107, 91, 71, 0.2), /* Soft drop shadow below */
+    0 4px 16px rgba(107, 91, 71, 0.15), /* Additional soft shadow */
+    inset 0 1px 4px rgba(255, 255, 255, 0.3), /* Inner top highlight */
+    inset 0 -1px 4px rgba(107, 91, 71, 0.1); /* Inner bottom shadow */
+  
+  /* --- ENSURE VISIBILITY --- */
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* Individual Navigation Buttons - Restructured Layout */
+.nav-button {
+  /* --- NEW BUTTON STRUCTURE --- */
+  position: relative;
+  width: 70px;
+  height: 85px; /* Increased height for better spacing */
+  border: none;
+  background: transparent; /* Transparent background */
+  cursor: pointer;
+  
+  /* --- FLEX LAYOUT: ICON ON TOP, TEXT BELOW --- */
+  display: flex;
+  flex-direction: column; /* Stack icon and text vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: center; /* Center vertically */
+  gap: 4px; /* Small gap between icon and text */
+  
+  /* --- INSET APPEARANCE --- */
+  border-radius: 20px; /* Rounded button area */
+  box-shadow: 
+    inset 2px 2px 6px rgba(107, 91, 71, 0.2), /* Subtle inset shadow */
+    inset -1px -1px 4px rgba(255, 255, 255, 0.15); /* Subtle inset highlight */
+  
+  /* --- SMOOTH TRANSITIONS --- */
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* --- REMOVE DEFAULT BUTTON STYLES --- */
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Button Hover Effect */
+.nav-button:hover {
+  /* --- ENHANCED HOVER EFFECT --- */
+  transform: translateY(-2px); /* Slight lift up */
+  box-shadow: 
+    inset 3px 3px 8px rgba(107, 91, 71, 0.25), /* Enhanced inset shadow */
+    inset -2px -2px 6px rgba(255, 255, 255, 0.2), /* Enhanced inset highlight */
+    0 4px 12px rgba(107, 91, 71, 0.15); /* Subtle drop shadow */
+}
+
+/* Button Active/Pressed State */
+.nav-button:active {
+  transform: translateY(0); /* Return to normal position */
+  box-shadow: 
+    inset 4px 4px 10px rgba(107, 91, 71, 0.3), /* Deeper inset when pressed */
+    inset -2px -2px 4px rgba(255, 255, 255, 0.1); /* Reduced highlight */
+}
+
+/* Icon Styling */
+.nav-icon {
+  font-size: 24px; /* Icon size */
+  color: #8B7355; /* Muted grayish-brown for inactive state */
+  transition: color 0.3s ease;
+}
+
+/* Text Label Styling */
+.nav-label {
+  font-family: 'Lilita One', cursive; /* Bold display font */
+  font-size: 11px; /* Slightly smaller since Lilita One is bolder */
+  font-weight: 400; /* Normal weight (Lilita One is naturally bold) */
+  color: #8B7355; /* Muted grayish-brown for inactive state */
+  text-align: center;
+  line-height: 1.1; /* Tight line height for clean appearance */
+  transition: color 0.3s ease;
+}
+
+/* Active State Styling */
+.nav-button.active {
+  /* --- ENHANCED INSET FOR ACTIVE STATE --- */
+  box-shadow: 
+    inset 3px 3px 8px rgba(93, 64, 55, 0.3), /* Active shadow with darker brown */
+    inset -2px -2px 6px rgba(255, 255, 255, 0.2); /* Subtle highlight */
+}
+
+.nav-button.active .nav-icon {
+  color: #5D4037; /* Dark brown for active state */
+}
+
+.nav-button.active .nav-label {
+  color: #5D4037; /* Dark brown for active state */
+  font-weight: 600; /* Slightly bolder for active state */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .bottom-navigation {
+    max-width: 95%; /* Almost full width on tablet */
+    min-width: 320px; /* Reduced minimum width */
+    padding: 14px 18px; /* Slightly reduced padding */
+  }
+  
+  .nav-button {
+    width: 65px; /* Slightly smaller buttons */
+    height: 80px; /* Proportional height */
+    gap: 3px; /* Reduced gap for smaller screens */
+  }
+  
+  .nav-icon {
+    font-size: 22px; /* Slightly smaller icons */
+  }
+  
+  .nav-label {
+    font-size: 10px; /* Smaller text */
+  }
+}
+
+@media (max-width: 480px) {
+  .bottom-navigation {
+    max-width: 100%; /* Full width on small mobile */
+    min-width: 300px; /* Further reduced minimum */
+    padding: 12px 16px; /* Further reduced padding */
+  }
+  
+  .nav-button {
+    width: 60px; /* Even smaller buttons */
+    height: 75px;
+    gap: 2px; /* Further reduced gap */
+  }
+  
+  .nav-icon {
+    font-size: 20px; /* Smaller icons for small screens */
+  }
+  
+  .nav-label {
+    font-size: 9px; /* Smaller text */
+  }
+}
+
+/* Focus States for Accessibility */
+.nav-button:focus {
+  outline: 2px solid #5D4037;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Safe Area Handling for Mobile Devices */
+@supports (padding: max(0px)) {
+  .bottom-navigation {
+    padding-bottom: max(20px, env(safe-area-inset-bottom));
+  }
+} 

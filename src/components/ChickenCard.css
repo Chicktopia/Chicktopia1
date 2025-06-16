@@ -1,0 +1,359 @@
+/* ChickenCard Component Styles - Claymorphism Design */
+
+/* Individual Chicken Card Styles */
+.chicken-card {
+  background: var(--clay-lighter); /* Lighter clay background to differentiate from feature cards */
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-raised);
+  padding: 20px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  
+  /* Flex layout for card content */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 160px;
+  
+  /* Prevent text selection */
+  -webkit-user-select: none; /* Safari support */
+  user-select: none;
+}
+
+/* Enhanced hover effect (works with framer-motion) */
+.chicken-card:hover {
+  background: var(--clay-base);
+  box-shadow: var(--shadow-clay-hover);
+  transform: translateY(-4px) scale(1.02);
+}
+
+/* Active state for touch interactions */
+.chicken-card:active {
+  transform: scale(0.98);
+  box-shadow: var(--shadow-clay-pressed);
+}
+
+/* Chicken Header Section - Name and Emoji */
+.chicken-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.chicken-emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+  animation: gentle-float 4s ease-in-out infinite; /* Subtle floating animation */
+}
+
+/* Chicken name section container */
+.chicken-name-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+  flex-grow: 1;
+}
+
+.chicken-name {
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  margin: 0;
+  line-height: 1.2;
+  
+  /* Truncate long names */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+/* Rarity tag styling */
+.rarity-tag {
+  font-family: var(--font-primary);
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 8px;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 
+    inset 1px 1px 2px rgba(255, 255, 255, 0.2),
+    inset -1px -1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Rarity color classes */
+.rarity-common {
+  background: linear-gradient(135deg, #A8A7A7, #8B8B8B);
+}
+
+.rarity-uncommon {
+  background: linear-gradient(135deg, #4CAF50, #388E3C);
+}
+
+.rarity-rare {
+  background: linear-gradient(135deg, #2196F3, #1976D2);
+}
+
+.rarity-epic {
+  background: linear-gradient(135deg, #9C27B0, #7B1FA2);
+}
+
+.rarity-legendary {
+  background: linear-gradient(135deg, #FF9800, #F57C00);
+}
+
+/* Species name styling (secondary display) */
+.chicken-species {
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-normal);
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.2;
+  font-style: italic;
+  opacity: 0.8;
+  
+  /* Truncate long species names */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+}
+
+/* Rarity Border Classes */
+.border-uncommon {
+  border: 2px solid #4CAF50;
+  box-shadow: 
+    var(--shadow-clay-raised),
+    0 0 8px rgba(76, 175, 80, 0.3);
+}
+
+.border-rare {
+  border: 2px solid #2196F3;
+  box-shadow: 
+    var(--shadow-clay-raised),
+    0 0 8px rgba(33, 150, 243, 0.3);
+}
+
+.border-epic {
+  border: 2px solid #9C27B0;
+  box-shadow: 
+    var(--shadow-clay-raised),
+    0 0 8px rgba(156, 39, 176, 0.3);
+}
+
+.border-legendary {
+  border: 2px solid #FFC107;
+  box-shadow: 
+    var(--shadow-clay-raised),
+    0 0 15px rgba(255, 152, 0, 0.5),
+    0 0 25px rgba(255, 193, 7, 0.3);
+  animation: legendary-glow 3s ease-in-out infinite alternate;
+}
+
+/* Legendary glow animation */
+@keyframes legendary-glow {
+  from {
+    box-shadow: 
+      var(--shadow-clay-raised),
+      0 0 15px rgba(255, 152, 0, 0.5),
+      0 0 25px rgba(255, 193, 7, 0.3);
+  }
+  to {
+    box-shadow: 
+      var(--shadow-clay-raised),
+      0 0 20px rgba(255, 152, 0, 0.7),
+      0 0 35px rgba(255, 193, 7, 0.5);
+  }
+}
+
+/* Level Display Section */
+.chicken-level {
+  margin: 8px 0;
+  text-align: center;
+}
+
+.level-text {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-primary);
+  background: var(--clay-darker);
+  color: var(--bg-primary);
+  padding: 4px 12px;
+  border-radius: var(--border-radius-sm);
+  box-shadow: var(--shadow-clay-raised);
+  display: inline-block;
+}
+
+/* Status Indicator Section */
+.chicken-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+  padding: 8px;
+  border-radius: var(--border-radius-sm);
+  background: rgba(255, 255, 255, 0.1); /* Subtle background */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px); /* Safari support */
+}
+
+.status-emoji {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.status-text {
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+/* Status-specific styling */
+.chicken-card.hungry .chicken-status {
+  background: rgba(255, 193, 7, 0.1); /* Subtle yellow tint */
+}
+
+.chicken-card.hungry .status-text {
+  color: #B8860B; /* Golden color for hungry status */
+}
+
+.chicken-card.normal .chicken-status {
+  background: rgba(40, 167, 69, 0.1); /* Subtle green tint */
+}
+
+.chicken-card.normal .status-text {
+  color: #2D5A3D; /* Green color for normal status */
+}
+
+.chicken-card.egg-ready .chicken-status {
+  background: rgba(255, 165, 0, 0.1); /* Subtle orange tint */
+  animation: soft-pulse 2s ease-in-out infinite; /* Gentle pulsing for attention */
+}
+
+.chicken-card.egg-ready .status-text {
+  color: #CC6600; /* Orange color for egg ready status */
+  font-weight: var(--font-weight-semibold);
+}
+
+.chicken-card.very-hungry .chicken-status {
+  background: rgba(220, 53, 69, 0.1); /* Subtle red tint */
+  animation: soft-pulse 1.5s ease-in-out infinite; /* Faster pulsing for urgency */
+}
+
+.chicken-card.very-hungry .status-text {
+  color: #B02A37; /* Red color for very hungry status */
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .chicken-card {
+    padding: 16px;
+    min-height: 140px;
+  }
+  
+  .chicken-header {
+    margin-bottom: 10px;
+    gap: 6px;
+  }
+  
+  .chicken-emoji {
+    font-size: 1.3rem;
+  }
+  
+  .chicken-name {
+    font-size: 1rem;
+  }
+  
+  .rarity-tag {
+    font-size: 0.55rem;
+    padding: 1px 5px;
+  }
+  
+  .level-text {
+    font-size: 0.9rem;
+    padding: 3px 10px;
+  }
+  
+  .status-emoji {
+    font-size: 1.1rem;
+  }
+  
+  .status-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .chicken-card {
+    padding: 14px;
+    min-height: 120px;
+  }
+  
+  .chicken-header {
+    margin-bottom: 8px;
+    gap: 4px;
+  }
+  
+  .chicken-emoji {
+    font-size: 1.2rem;
+  }
+  
+  .chicken-name {
+    font-size: 0.95rem;
+  }
+  
+  .rarity-tag {
+    font-size: 0.5rem;
+    padding: 1px 4px;
+  }
+  
+  .level-text {
+    font-size: 0.85rem;
+    padding: 2px 8px;
+  }
+  
+  .status-emoji {
+    font-size: 1rem;
+  }
+  
+  .status-text {
+    font-size: 0.8rem;
+  }
+  
+  .chicken-status {
+    padding: 6px;
+  }
+}
+
+/* Accessibility improvements */
+.chicken-card:focus {
+  outline: 3px solid rgba(107, 91, 71, 0.3);
+  outline-offset: 2px;
+}
+
+/* Animation for cards appearing in grid */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Staggered animation for grid items */
+.chicken-card:nth-child(1) { animation: fadeInUp 0.5s ease-out 0.1s both; }
+.chicken-card:nth-child(2) { animation: fadeInUp 0.5s ease-out 0.2s both; }
+.chicken-card:nth-child(3) { animation: fadeInUp 0.5s ease-out 0.3s both; }
+.chicken-card:nth-child(4) { animation: fadeInUp 0.5s ease-out 0.4s both; }
+.chicken-card:nth-child(5) { animation: fadeInUp 0.5s ease-out 0.5s both; }
+.chicken-card:nth-child(6) { animation: fadeInUp 0.5s ease-out 0.6s both; } 

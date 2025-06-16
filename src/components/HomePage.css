@@ -1,0 +1,85 @@
+/* HomePage Component Styles */
+
+/* Target Selection Mode Header */
+.target-selection-header {
+  background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-raised);
+  margin: 0 20px 20px 20px;
+  padding: 20px;
+  animation: slideDown 0.3s ease-out;
+}
+
+.target-selection-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 20px;
+}
+
+.target-selection-title {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: var(--font-weight-semibold);
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.target-selection-title strong {
+  font-weight: var(--font-weight-bold);
+  text-decoration: underline;
+}
+
+.cancel-selection-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid white;
+  border-radius: var(--border-radius-md);
+  color: white;
+  padding: 10px 20px;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+.cancel-selection-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cancel-selection-btn:active {
+  transform: translateY(0);
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .target-selection-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+  
+  .target-selection-title {
+    font-size: 1.1rem;
+  }
+  
+  .cancel-selection-btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+} 

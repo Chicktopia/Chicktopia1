@@ -1,0 +1,155 @@
+/* MyEggs Component Styles */
+/* Implements claymorphism design for the egg inventory with scrollable list */
+
+.my-eggs {
+  /* Container for the entire My Eggs section */
+  background: var(--clay-base);
+  border-radius: 20px;
+  padding: 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  
+  /* Raised claymorphism container effect */
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.4),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+/* Note: Section title styling is handled by global .section-title in HatcheryPage.css */
+
+/* Scrollable eggs list */
+.eggs-list {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 12px;
+  
+  /* Custom scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(139, 125, 111, 0.3) transparent;
+}
+
+.eggs-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.eggs-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.eggs-list::-webkit-scrollbar-thumb {
+  background: rgba(139, 125, 111, 0.3);
+  border-radius: 3px;
+}
+
+.eggs-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 125, 111, 0.5);
+}
+
+/* Empty state styling */
+.no-eggs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.no-eggs-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+
+.no-eggs-text {
+  font-family: 'Lilita One', cursive;
+  font-size: 16px;
+  color: var(--clay-dark);
+  margin: 0 0 8px 0;
+}
+
+.no-eggs-hint {
+  font-family: 'Lilita One', cursive;
+  font-size: 12px;
+  color: var(--clay-dark);
+  margin: 0;
+  opacity: 0.8;
+}
+
+/* Selection hint section */
+.selection-hint {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 2px solid rgba(139, 125, 111, 0.1);
+}
+
+.hint-text {
+  font-family: 'Lilita One', cursive;
+  font-size: 11px;
+  color: var(--clay-dark);
+  margin: 0;
+  text-align: center;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+.hint-text.selected {
+  color: #2E8B57;
+  opacity: 1;
+  font-weight: bold;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .my-eggs {
+    padding: 16px;
+  }
+  
+
+  
+  .no-eggs {
+    padding: 30px 16px;
+  }
+  
+  .no-eggs-icon {
+    font-size: 40px;
+  }
+  
+  .no-eggs-text {
+    font-size: 14px;
+  }
+  
+  .no-eggs-hint {
+    font-size: 11px;
+  }
+  
+  .hint-text {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .my-eggs {
+    padding: 12px;
+  }
+  
+
+  
+  .no-eggs {
+    padding: 24px 12px;
+  }
+  
+  .no-eggs-icon {
+    font-size: 36px;
+  }
+  
+  .no-eggs-text {
+    font-size: 13px;
+  }
+  
+  .hint-text {
+    font-size: 9px;
+  }
+} 

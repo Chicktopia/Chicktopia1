@@ -1,0 +1,409 @@
+/* TicketExchangeModal Component Styles */
+
+.ticket-exchange-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.ticket-exchange-modal {
+  background: var(--clay-base);
+  border-radius: var(--border-radius-xl);
+  box-shadow: var(--shadow-clay-raised);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header */
+.exchange-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1rem 2rem;
+  border-bottom: 1px solid rgba(107, 91, 71, 0.1);
+}
+
+.exchange-title {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: 'Lilita One', cursive;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.exchange-icon {
+  color: #D4AF37;
+  filter: drop-shadow(0 2px 4px rgba(212, 175, 55, 0.3));
+}
+
+.exchange-close-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--clay-darker);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+}
+
+.exchange-close-btn:hover {
+  color: var(--text-primary);
+  transform: scale(1.1);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+/* Current Balances - Compact Two-Column Layout */
+.current-balances {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.balance-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-inset);
+}
+
+.balance-icon {
+  font-size: 1.5rem;
+  margin-bottom: 0.25rem;
+}
+
+.coin-icon {
+  color: #D4AF37;
+}
+
+.ticket-icon {
+  color: #4CAF50;
+}
+
+.balance-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-medium);
+}
+
+.balance-value {
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  font-family: 'Lilita One', cursive;
+}
+
+.balance-value.insufficient {
+  color: #ef4444;
+}
+
+.balance-value.receive {
+  color: #4CAF50;
+}
+
+/* Exchange Rate - Compact */
+.exchange-rate {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(107, 91, 71, 0.1);
+}
+
+.rate-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.rate-text {
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.rate-conversion {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-inset);
+}
+
+.rate-amount {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.rate-arrow {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* Exchange Controls */
+.exchange-controls {
+  padding: 2rem;
+}
+
+.amount-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.amount-label {
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+}
+
+.amount-input-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-lg);
+  padding: 0.5rem;
+  box-shadow: var(--shadow-clay-inset);
+}
+
+.amount-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--clay-base);
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+}
+
+.amount-btn:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.amount-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.amount-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  text-align: center;
+  font-size: 1.4rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  font-family: 'Lilita One', cursive;
+  outline: none;
+}
+
+.amount-input::-webkit-outer-spin-button,
+.amount-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.amount-input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.max-btn {
+  padding: 0.5rem 1rem;
+  background: var(--clay-darker);
+  border: none;
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--bg-primary);
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+  align-self: flex-end;
+}
+
+.max-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.max-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Cost Display */
+.cost-display {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: var(--clay-lighter);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-clay-inset);
+}
+
+.cost-breakdown {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cost-label {
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  color: var(--text-secondary);
+}
+
+.cost-value {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  font-family: 'Lilita One', cursive;
+}
+
+/* Action Buttons */
+.exchange-actions {
+  display: flex;
+  gap: 1rem;
+  padding: 2rem;
+  border-top: 1px solid rgba(107, 91, 71, 0.1);
+}
+
+.exchange-btn {
+  flex: 1;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: var(--border-radius-lg);
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: var(--font-weight-semibold);
+  box-shadow: var(--shadow-clay-raised);
+  transition: all 0.3s ease;
+}
+
+.cancel-btn {
+  background: var(--clay-lighter);
+  color: var(--text-secondary);
+}
+
+.cancel-btn:hover {
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-clay-hover);
+}
+
+.confirm-btn {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+  color: white;
+}
+
+.confirm-btn:hover:not(.disabled) {
+  transform: translateY(-2px);
+  box-shadow: 
+    var(--shadow-clay-hover),
+    0 10px 30px rgba(76, 175, 80, 0.3);
+}
+
+.confirm-btn.disabled {
+  background: var(--clay-darker);
+  color: var(--text-secondary);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ticket-exchange-modal {
+    width: 95%;
+    margin: 1rem;
+  }
+  
+  .exchange-header {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+  }
+  
+  .exchange-title {
+    font-size: 1.5rem;
+  }
+  
+  .current-balances {
+    padding: 1rem 1.5rem;
+    flex-direction: column;
+  }
+  
+  .exchange-controls {
+    padding: 1.5rem;
+  }
+  
+  .exchange-actions {
+    padding: 1.5rem;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .rate-conversion {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .rate-arrow {
+    transform: rotate(90deg);
+  }
+  
+  .amount-input-group {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .amount-input {
+    order: -1;
+    margin-bottom: 0.5rem;
+  }
+} 

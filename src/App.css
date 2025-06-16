@@ -1,0 +1,107 @@
+/* App Component Styles - Main Layout */
+
+/* Root App Container */
+.app {
+  min-height: 100vh; /* Full viewport height */
+  background: var(--bg-primary); /* Sandy beige background */
+  position: relative; /* For absolute positioned children */
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+  /* Ensure fixed elements aren't clipped or hidden */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Main Content Area */
+.main-content {
+  width: 100%;
+  min-height: 100vh; /* Full height */
+  padding-top: 80px; /* Space for fixed top navigation */
+  padding-bottom: 120px; /* Increased padding to ensure content doesn't hide behind bottom bar */
+  
+  /* Ensure content flows properly */
+  display: flex;
+  flex-direction: column;
+  gap: 0; /* No gap between sections as they have their own padding */
+}
+
+/* Responsive adjustments for mobile */
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 70px; /* Reduced top padding */
+    padding-bottom: 50px; /* Reduced bottom padding since bar is floating */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-content {
+    padding-top: 60px; /* Further reduced for mobile */
+    padding-bottom: 40px; /* Reduced bottom padding since bar is floating */
+  }
+}
+
+/* Smooth scrolling behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Prevent text selection on UI elements */
+.app {
+  -webkit-user-select: none; /* Safari support */
+  -moz-user-select: none; /* Firefox support */
+  -ms-user-select: none; /* IE support */
+  user-select: none;
+}
+
+/* Allow text selection for content that should be selectable */
+.app p,
+.app h1,
+.app h2,
+.app h3,
+.app h4,
+.app h5,
+.app h6,
+.app span:not(.clay-card *),
+.app div:not(.clay-card *) {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
+/* Ensure proper stacking context for app children */
+.app > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Optimize rendering performance - removed transform properties that interfere with fixed positioning */
+.app {
+  /* Removed transform properties to allow proper fixed positioning of child elements */
+}
+
+/* Loading state styles (for future implementation) */
+.app.loading {
+  cursor: progress;
+}
+
+.app.loading * {
+  pointer-events: none;
+}
+
+/* Focus management for accessibility */
+.app:focus-within {
+  /* Styles when any child element has focus */
+}
+
+/* Print styles */
+@media print {
+  .app {
+    background: white;
+    color: black;
+  }
+  
+  .main-content {
+    padding: 0;
+  }
+}
+
+

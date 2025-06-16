@@ -1,0 +1,169 @@
+/* EggCard Component Styles */
+/* Implements claymorphism design for egg inventory cards with rarity-based styling */
+
+.egg-card {
+  /* Base card styling with claymorphism effect */
+  background: var(--clay-base);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  position: relative;
+  
+  /* Raised claymorphism effect */
+  box-shadow: 
+    4px 4px 8px rgba(139, 125, 111, 0.3),
+    -4px -4px 8px rgba(255, 255, 255, 0.7);
+    
+  transition: all 0.2s ease;
+  margin-bottom: 12px;
+}
+
+.egg-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.4),
+    -6px -6px 12px rgba(255, 255, 255, 0.8);
+}
+
+.egg-card:active {
+  transform: translateY(0);
+  box-shadow: 
+    2px 2px 4px rgba(139, 125, 111, 0.3),
+    -2px -2px 4px rgba(255, 255, 255, 0.7);
+}
+
+/* Selected state styling */
+.egg-card.selected {
+  /* More prominent shadow and slight color shift when selected */
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.5),
+    -6px -6px 12px rgba(255, 255, 255, 0.9),
+    0 0 12px rgba(255, 215, 0, 0.3);
+    
+  background: linear-gradient(145deg, #f0e1d0, #e8d5c4);
+}
+
+/* Egg sprite styling */
+.egg-sprite {
+  font-size: 32px;
+  min-width: 40px;
+  text-align: center;
+  filter: drop-shadow(1px 1px 2px rgba(139, 125, 111, 0.3));
+}
+
+/* Egg information container */
+.egg-info {
+  flex: 1;
+  min-width: 0; /* Allows text to truncate properly */
+}
+
+.egg-name {
+  font-family: 'Lilita One', cursive;
+  font-size: 14px;
+  color: var(--clay-dark);
+  margin: 0 0 4px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.egg-rarity {
+  font-family: 'Lilita One', cursive;
+  font-size: 11px;
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: normal;
+}
+
+/* Rarity-based color coding */
+.rarity-common .egg-rarity {
+  color: #8B7D6B; /* Clay dark for common */
+}
+
+.rarity-uncommon .egg-rarity {
+  color: #2E8B57; /* Sea green for uncommon */
+}
+
+.rarity-rare .egg-rarity {
+  color: #4169E1; /* Royal blue for rare */
+}
+
+.rarity-epic .egg-rarity {
+  color: #9932CC; /* Dark orchid for epic */
+}
+
+.rarity-legendary .egg-rarity {
+  color: #FFD700; /* Gold for legendary */
+}
+
+/* Selection indicator */
+.selection-indicator {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 20px;
+  height: 20px;
+  background: linear-gradient(145deg, #90EE90, #32CD32);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  
+  /* Small raised effect for the checkmark */
+  box-shadow: 
+    2px 2px 4px rgba(139, 125, 111, 0.4),
+    -1px -1px 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .egg-card {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .egg-sprite {
+    font-size: 28px;
+    min-width: 36px;
+  }
+  
+  .egg-name {
+    font-size: 13px;
+  }
+  
+  .egg-rarity {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .egg-card {
+    padding: 10px;
+    gap: 8px;
+  }
+  
+  .egg-sprite {
+    font-size: 24px;
+    min-width: 32px;
+  }
+  
+  .egg-name {
+    font-size: 12px;
+  }
+  
+  .egg-rarity {
+    font-size: 9px;
+  }
+  
+  .selection-indicator {
+    width: 18px;
+    height: 18px;
+    font-size: 10px;
+  }
+} 
