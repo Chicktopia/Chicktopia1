@@ -3,6 +3,6 @@ import react from '@vitejs/plugin-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/chicktopia1/', // Changed back for GitHub Pages URL
+  base: '/', // For custom domain - site served from root
   plugins: [react()],
 })
