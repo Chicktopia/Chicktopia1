@@ -43,17 +43,25 @@ const AppContent = () => {
     isWelcomeModalReopened, 
     closeWelcomeModal,
     isModalActive,
-    startNewGame,
-    myChickens // Use myChickens as indicator of existing player data
+    startNewGame
   } = usePlayer();
 
-  // Check if player data exists (if myChickens is populated, we have a save file)
-  const hasPlayerData = myChickens && myChickens.length > 0;
+  // Robust check: Does a save file actually exist in localStorage?
+  // This is the most reliable way to determine if a game has been started
+  const hasActiveGame = React.useMemo(() => {
+    try {
+      const saveData = localStorage.getItem('chicktopia-savegame');
+      return saveData !== null;
+    } catch (error) {
+      console.warn('Error checking save data:', error);
+      return false; // If error, assume no save file (show welcome modal)
+    }
+  }, []); // Only check once on component mount
 
   return (
     <>
-      {/* If there is NO player data, show the Welcome Modal */}
-      {!hasPlayerData && (
+      {/* If there is NO active game, show the Welcome Modal */}
+      {!hasActiveGame && (
         <WelcomeModal 
           isOpen={true}
           onStartPlaying={startNewGame}
@@ -62,7 +70,7 @@ const AppContent = () => {
       )}
 
       {/* Reopened Welcome Modal - Shows when manually opened via About button */}
-      {hasPlayerData && isWelcomeModalOpen && (
+      {hasActiveGame && isWelcomeModalOpen && (
         <WelcomeModal 
           isOpen={isWelcomeModalOpen}
           onStartPlaying={closeWelcomeModal} // Close the reopened modal
@@ -70,8 +78,8 @@ const AppContent = () => {
         />
       )}
 
-      {/* If player data EXISTS, show the main game content */}
-      {hasPlayerData && !isWelcomeModalOpen && (
+      {/* If active game EXISTS, show the main game content */}
+      {hasActiveGame && !isWelcomeModalOpen && (
         <>
           <div className={`app main-app-container ${isModalActive ? 'modal-is-open' : ''}`}>
             {/* Fixed Top Navigation Bar */}
