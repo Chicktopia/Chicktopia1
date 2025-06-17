@@ -179,10 +179,13 @@ export const PlayerProvider = ({ children }) => {
     // Reset the game state to initial values (this triggers localStorage save automatically)
     gameState.resetGame();
     
-    // Close the welcome modal
-    closeWelcomeModal();
+    console.log('New game started - reloading page to ensure clean state transition...');
     
-    console.log('New game started successfully!');
+    // Force a page reload to start the game fresh with the new save file
+    // This bypasses any React state transition issues and ensures reliable entry into the game
+    setTimeout(() => {
+      window.location.reload();
+    }, 100); // 100ms delay ensures the localStorage save has time to complete
   };
 
   // Context value with all player data and functions
