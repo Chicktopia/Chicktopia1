@@ -174,6 +174,17 @@ export const PlayerProvider = ({ children }) => {
     setIsModalActive(active);
   };
 
+  // NEW: Centralized function to start a new game
+  const startNewGame = () => {
+    // Reset the game state to initial values (this triggers localStorage save automatically)
+    gameState.resetGame();
+    
+    // Close the welcome modal
+    closeWelcomeModal();
+    
+    console.log('New game started successfully!');
+  };
+
   // Context value with all player data and functions
   const contextValue = {
     // Player stats
@@ -255,6 +266,9 @@ export const PlayerProvider = ({ children }) => {
     // NEW: Global modal state management for background transparency
     isModalActive,
     setModalActive,
+
+    // NEW: Centralized game initialization
+    startNewGame,
   };
 
   return (

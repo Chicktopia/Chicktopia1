@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
@@ -41,43 +41,37 @@ const AppContent = () => {
   const { 
     isWelcomeModalOpen, 
     isWelcomeModalReopened, 
-    openWelcomeModal, 
     closeWelcomeModal,
-    isModalActive 
+    isModalActive,
+    startNewGame,
+    myChickens // Use myChickens as indicator of existing player data
   } = usePlayer();
 
-  // Check for existing save file on app initialization
-  useEffect(() => {
-    try {
-      const saveData = localStorage.getItem('chicktopia-savegame');
-      if (!saveData) {
-        // No save file found - show welcome modal for first-time players
-        openWelcomeModal(false); // false = not reopened, first-time launch
-      }
-    } catch (error) {
-      console.warn('Error checking for save file:', error);
-      // If there's an error reading localStorage, assume new player
-      openWelcomeModal(false); // false = not reopened, first-time launch
-    }
-  }, [openWelcomeModal]);
-
-  // Handle start playing button click
-  const handleStartPlaying = () => {
-    closeWelcomeModal();
-    // The game will automatically create a new save file through PlayerProvider
-  };
+  // Check if player data exists (if myChickens is populated, we have a save file)
+  const hasPlayerData = myChickens && myChickens.length > 0;
 
   return (
     <>
-      {/* Welcome Modal - Shows for first-time players or when reopened */}
-      <WelcomeModal 
-        isOpen={isWelcomeModalOpen}
-        onStartPlaying={handleStartPlaying}
-        isReopened={isWelcomeModalReopened}
-      />
+      {/* If there is NO player data, show the Welcome Modal */}
+      {!hasPlayerData && (
+        <WelcomeModal 
+          isOpen={true}
+          onStartPlaying={startNewGame}
+          isReopened={false}
+        />
+      )}
 
-      {/* Only show main game UI when welcome modal is closed */}
-      {!isWelcomeModalOpen && (
+      {/* Reopened Welcome Modal - Shows when manually opened via About button */}
+      {hasPlayerData && isWelcomeModalOpen && (
+        <WelcomeModal 
+          isOpen={isWelcomeModalOpen}
+          onStartPlaying={closeWelcomeModal} // Close the reopened modal
+          isReopened={isWelcomeModalReopened}
+        />
+      )}
+
+      {/* If player data EXISTS, show the main game content */}
+      {hasPlayerData && !isWelcomeModalOpen && (
         <>
           <div className={`app main-app-container ${isModalActive ? 'modal-is-open' : ''}`}>
             {/* Fixed Top Navigation Bar */}
