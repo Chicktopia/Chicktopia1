@@ -1,0 +1,160 @@
+/* WalletConnectButton Component Styles */
+/* Custom styling for Solana wallet adapter button to match earthen claymorphism theme */
+
+.wallet-button-container {
+  position: relative;
+  display: inline-block;
+}
+
+/* Override default wallet adapter button styles */
+.wallet-button-container .wallet-adapter-button {
+  /* Earthen claymorphism base styling */
+  background: linear-gradient(145deg, #F6E5C7, #E8D5C4) !important;
+  border: none !important;
+  border-radius: 24px !important;
+  padding: 12px 24px !important;
+  
+  /* Typography matching our theme */
+  font-family: 'Lilita One', cursive !important;
+  font-size: 16px !important;
+  color: #8B7D6F !important;
+  font-weight: normal !important;
+  
+  /* Clay-like raised effect */
+  box-shadow: 
+    8px 8px 16px rgba(139, 125, 111, 0.4),
+    -8px -8px 16px rgba(255, 215, 0, 0.3),
+    inset 1px 1px 2px rgba(255, 215, 0, 0.2),
+    inset -1px -1px 2px rgba(139, 125, 111, 0.1) !important;
+  
+  /* Smooth transitions */
+  transition: all 0.3s ease !important;
+  cursor: pointer !important;
+  
+  /* Remove default styles */
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+/* Hover state */
+.wallet-button-container .wallet-adapter-button:hover:not([disabled]) {
+  transform: translateY(-2px) scale(1.02) !important;
+  box-shadow: 
+    10px 10px 20px rgba(139, 125, 111, 0.5),
+    -10px -10px 20px rgba(255, 215, 0, 0.4),
+    inset 1px 1px 2px rgba(255, 215, 0, 0.3),
+    inset -1px -1px 2px rgba(139, 125, 111, 0.05),
+    0 0 15px rgba(255, 215, 0, 0.2) !important;
+  
+  color: #7A6B5E !important;
+}
+
+/* Active/pressed state */
+.wallet-button-container .wallet-adapter-button:active:not([disabled]) {
+  transform: translateY(0) scale(1.01) !important;
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.3),
+    -6px -6px 12px rgba(255, 215, 0, 0.25),
+    inset 2px 2px 4px rgba(139, 125, 111, 0.2),
+    inset -2px -2px 4px rgba(255, 215, 0, 0.15) !important;
+}
+
+/* Focus state for accessibility */
+.wallet-button-container .wallet-adapter-button:focus:not([disabled]) {
+  box-shadow: 
+    8px 8px 16px rgba(139, 125, 111, 0.4),
+    -8px -8px 16px rgba(255, 215, 0, 0.3),
+    inset 1px 1px 2px rgba(255, 215, 0, 0.2),
+    inset -1px -1px 2px rgba(139, 125, 111, 0.1),
+    0 0 0 3px rgba(255, 215, 0, 0.4) !important;
+}
+
+/* Disabled state */
+.wallet-button-container .wallet-adapter-button[disabled] {
+  opacity: 0.6 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  
+  background: linear-gradient(145deg, #E8D5C4, #D3C4B3) !important;
+  color: #A0927F !important;
+  
+  box-shadow: 
+    4px 4px 8px rgba(139, 125, 111, 0.2),
+    -4px -4px 8px rgba(255, 255, 255, 0.5),
+    inset 1px 1px 2px rgba(139, 125, 111, 0.1) !important;
+}
+
+/* When connected - showing wallet address */
+.wallet-button-container .wallet-adapter-button.wallet-adapter-button-connected {
+  /* Slightly different styling for connected state */
+  background: linear-gradient(145deg, #FFD700, #FFC700) !important;
+  color: #8B7D6F !important;
+  
+  /* Enhanced golden glow for connected state */
+  box-shadow: 
+    8px 8px 16px rgba(139, 125, 111, 0.4),
+    -8px -8px 16px rgba(255, 215, 0, 0.4),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.3),
+    inset -1px -1px 2px rgba(212, 175, 55, 0.2),
+    0 0 20px rgba(255, 215, 0, 0.3) !important;
+}
+
+/* Override wallet adapter modal styles to match our theme */
+.wallet-adapter-modal {
+  background: rgba(139, 125, 111, 0.8) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  backdrop-filter: blur(12px) !important;
+}
+
+.wallet-adapter-modal-container {
+  background: linear-gradient(145deg, #F6E5C7, #E8D5C4) !important;
+  border-radius: 32px !important;
+  box-shadow: 
+    20px 20px 40px rgba(139, 125, 111, 0.6),
+    -20px -20px 40px rgba(255, 215, 0, 0.3),
+    0 0 60px rgba(139, 125, 111, 0.3) !important;
+}
+
+.wallet-adapter-modal-title {
+  font-family: 'Lilita One', cursive !important;
+  color: #8B7D6F !important;
+  font-size: 24px !important;
+}
+
+.wallet-adapter-modal-list {
+  padding: 0 !important;
+}
+
+.wallet-adapter-modal-list-item {
+  background: linear-gradient(145deg, #E8D5C4, #D3C4B3) !important;
+  border-radius: 16px !important;
+  margin: 8px 0 !important;
+  
+  box-shadow: 
+    4px 4px 8px rgba(139, 125, 111, 0.3),
+    -4px -4px 8px rgba(255, 215, 0, 0.2) !important;
+}
+
+.wallet-adapter-modal-list-item:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.4),
+    -6px -6px 12px rgba(255, 215, 0, 0.3) !important;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .wallet-button-container .wallet-adapter-button {
+    padding: 10px 20px !important;
+    font-size: 14px !important;
+    border-radius: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .wallet-button-container .wallet-adapter-button {
+    padding: 8px 16px !important;
+    font-size: 13px !important;
+    border-radius: 18px !important;
+  }
+} 

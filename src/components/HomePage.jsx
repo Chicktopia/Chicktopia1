@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { FaInfoCircle } from 'react-icons/fa';
 import './HomePage.css';
 
 // Import homepage components
@@ -16,9 +17,9 @@ const HomePage = () => {
     itemToUse, 
     setItemToUse, 
     removeItem, 
-    myChickens, 
     setMyChickens,
-    selectChicken
+    selectChicken,
+    openWelcomeModal
   } = usePlayer();
   
   // State for target selection mode
@@ -77,6 +78,16 @@ const HomePage = () => {
 
   return (
     <>
+      {/* About Button - Top-left corner floating button */}
+      <button 
+        className="about-button"
+        onClick={() => openWelcomeModal(true)}
+        title="About Chicktopia"
+        aria-label="About Chicktopia"
+      >
+        <FaInfoCircle />
+      </button>
+
       {/* Target Selection Mode Header */}
       {isTargetSelectionMode && itemToUse && (
         <div className="target-selection-header">

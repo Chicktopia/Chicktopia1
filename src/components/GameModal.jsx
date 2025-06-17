@@ -10,11 +10,13 @@ import './GameModal.css';
  * @param {string} props.message - Modal message content
  * @param {Function} props.onClose - Function called when modal is closed
  * @param {string} props.type - Modal type: 'success', 'warning', 'info', 'error'
+ * @param {React.Component} props.icon - Custom icon component to display
  * @param {string} props.buttonText - Custom button text (default: 'OK')
  * @param {boolean} props.showConfirmButton - Whether to show confirm/cancel buttons
  * @param {Function} props.onConfirm - Function called when confirm is clicked
  * @param {string} props.confirmText - Confirm button text (default: 'Confirm')
  * @param {string} props.cancelText - Cancel button text (default: 'Cancel')
+ * @param {Array} props.customButtons - Array of custom button objects with {text, onClick, className} properties
  */
 const GameModal = ({ 
   isOpen, 
@@ -22,11 +24,13 @@ const GameModal = ({
   message, 
   onClose, 
   type = 'info',
+  icon,
   buttonText = 'OK',
   showConfirmButton = false,
   onConfirm,
   confirmText = 'Confirm',
-  cancelText = 'Cancel'
+  cancelText = 'Cancel',
+  customButtons
 }) => {
   // Handle keyboard escape to close modal
   React.useEffect(() => {
@@ -58,8 +62,12 @@ const GameModal = ({
   // Don't render anything if modal is not open
   if (!isOpen) return null;
 
-  // Get icon based on modal type
-  const getTypeIcon = () => {
+  // Get icon based on modal type or custom icon
+  const getDisplayIcon = () => {
+    if (icon) {
+      return React.cloneElement(icon, { className: 'modal-custom-icon' });
+    }
+    
     switch (type) {
       case 'success':
         return '🎉';
@@ -79,7 +87,7 @@ const GameModal = ({
         {/* Modal header with icon and title */}
         <div className="modal-header">
           <div className="modal-icon">
-            {getTypeIcon()}
+            {getDisplayIcon()}
           </div>
           <h2 className="modal-title">{title}</h2>
         </div>
@@ -95,7 +103,19 @@ const GameModal = ({
 
         {/* Modal footer with action button(s) */}
         <div className="modal-footer">
-          {showConfirmButton ? (
+          {customButtons ? (
+            // Show custom buttons if provided
+            customButtons.map((button, index) => (
+              <button 
+                key={index}
+                className={`modal-button ${button.className || ''}`}
+                onClick={button.onClick}
+                autoFocus={index === 0}
+              >
+                {button.text}
+              </button>
+            ))
+          ) : showConfirmButton ? (
             // Show confirm/cancel buttons for confirmation dialogs
             <>
               <button 

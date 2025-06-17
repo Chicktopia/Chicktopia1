@@ -80,8 +80,8 @@
   flex-shrink: 0; /* Prevent shrinking */
 }
 
-/* Player Hub Styles */
-.player-hub {
+/* Wallet Section Styles */
+.wallet-section {
   position: relative; /* For dropdown positioning */
 }
 
@@ -206,12 +206,12 @@
   border-radius: 0 0 var(--border-radius-md) var(--border-radius-md);
 }
 
-.dropdown-item.logout {
+.dropdown-item.disconnect {
   border-top: 1px solid rgba(107, 91, 71, 0.1);
-  color: #B8860B; /* Slightly different color for logout */
+  color: #B8860B; /* Slightly different color for disconnect */
 }
 
-.dropdown-item.logout:hover {
+.dropdown-item.disconnect:hover {
   background: rgba(184, 134, 11, 0.1);
 }
 
@@ -298,7 +298,7 @@
     font-size: 1rem;
   }
   
-  /* Adjust Player Hub for tablet */
+  /* Adjust Wallet Section for tablet */
   .connect-wallet-btn {
     padding: 8px 16px;
     font-size: 0.85rem;
@@ -357,7 +357,7 @@
     font-size: 1rem;
   }
   
-  /* Further adjust Player Hub for mobile */
+  /* Further adjust Wallet Section for mobile */
   .connect-wallet-btn {
     padding: 6px 12px;
     font-size: 0.8rem;

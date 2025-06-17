@@ -54,6 +54,13 @@
   filter: drop-shadow(2px 2px 4px rgba(139, 125, 111, 0.3));
 }
 
+/* Custom icon styling for React Icons */
+.modal-custom-icon {
+  font-size: 32px;
+  color: var(--clay-dark);
+  filter: drop-shadow(2px 2px 4px rgba(139, 125, 111, 0.3));
+}
+
 .modal-title {
   font-family: 'Lilita One', cursive;
   font-size: 24px;

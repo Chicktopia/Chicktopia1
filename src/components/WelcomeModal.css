@@ -1,0 +1,376 @@
+/* WelcomeModal Component Styles */
+/* First-time player welcome screen with beautiful claymorphism design */
+
+.welcome-modal-backdrop {
+  /* Full screen overlay with blur effect */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(139, 125, 111, 0.6);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000; /* Higher than other modals */
+  animation: welcome-fade-in 0.8s ease-out;
+}
+
+.welcome-modal {
+  /* Main modal container with prominent claymorphism design */
+  background: linear-gradient(145deg, #F6E5C7, #E8D5C4);
+  border-radius: 40px;
+  padding: 48px 40px;
+  max-width: 600px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: center;
+  
+  /* Very prominent raised claymorphism effect */
+  box-shadow: 
+    20px 20px 40px rgba(139, 125, 111, 0.6),
+    -20px -20px 40px rgba(255, 255, 255, 1),
+    0 0 60px rgba(139, 125, 111, 0.3),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.8),
+    inset -2px -2px 4px rgba(139, 125, 111, 0.2);
+    
+  animation: welcome-modal-appear 1.0s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center;
+}
+
+/* Header Image Section */
+.welcome-header-image {
+  margin-bottom: 32px;
+  position: relative;
+}
+
+.mascot-container {
+  position: relative;
+  display: inline-block;
+}
+
+.chicken-mascot {
+  /* Large friendly chicken mascot */
+  font-size: 120px;
+  line-height: 1;
+  display: block;
+  animation: gentle-bounce 3s ease-in-out infinite;
+  filter: drop-shadow(4px 4px 8px rgba(139, 125, 111, 0.4));
+  position: relative;
+  z-index: 2;
+}
+
+.mascot-glow {
+  /* Magical glow effect behind mascot */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3), transparent 70%);
+  border-radius: 50%;
+  animation: pulse-glow 2s ease-in-out infinite alternate;
+  z-index: 1;
+}
+
+/* Main Title */
+.welcome-title {
+  font-family: 'Lilita One', cursive;
+  font-size: 48px;
+  color: #8B7D6F;
+  margin: 0 0 32px 0;
+  text-shadow: 
+    2px 2px 4px rgba(139, 125, 111, 0.3),
+    -1px -1px 2px rgba(255, 255, 255, 0.8);
+  animation: title-shine 4s ease-in-out infinite;
+}
+
+/* Welcome Content Section */
+.welcome-content {
+  margin-bottom: 40px;
+}
+
+.welcome-text {
+  font-family: 'Lilita One', cursive;
+  font-size: 18px;
+  color: #8B7D6F;
+  line-height: 1.6;
+  margin: 0 0 24px 0;
+  opacity: 0.9;
+  max-width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alpha-notice {
+  font-family: 'Lilita One', cursive;
+  font-size: 14px;
+  color: #A0927F;
+  line-height: 1.5;
+  margin: 0;
+  opacity: 0.8;
+  max-width: 450px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Action Buttons Section */
+.welcome-buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.welcome-button {
+  background: linear-gradient(145deg, #E8D5C4, #D3C4B3);
+  border: none;
+  border-radius: 28px;
+  padding: 20px 40px;
+  font-family: 'Lilita One', cursive;
+  font-size: 20px;
+  color: #8B7D6F;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  
+  /* Prominent button claymorphism effect */
+  box-shadow: 
+    10px 10px 20px rgba(139, 125, 111, 0.5),
+    -10px -10px 20px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.8),
+    inset -1px -1px 2px rgba(139, 125, 111, 0.2);
+}
+
+.welcome-button:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 
+    12px 12px 24px rgba(139, 125, 111, 0.6),
+    -12px -12px 24px rgba(255, 255, 255, 1),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.9),
+    inset -1px -1px 2px rgba(139, 125, 111, 0.1);
+}
+
+.welcome-button:active {
+  transform: translateY(-1px) scale(1.01);
+  box-shadow: 
+    6px 6px 12px rgba(139, 125, 111, 0.4),
+    -6px -6px 12px rgba(255, 255, 255, 0.8),
+    inset 2px 2px 4px rgba(139, 125, 111, 0.3),
+    inset -2px -2px 4px rgba(255, 255, 255, 0.7);
+}
+
+/* Primary Button - Start Playing */
+.welcome-button.primary {
+  background: linear-gradient(145deg, #FFD700, #FFC700);
+  color: #8B7D6F;
+  font-size: 24px;
+  padding: 24px 48px;
+  min-width: 280px;
+  
+  /* Special golden glow effect */
+  box-shadow: 
+    12px 12px 24px rgba(139, 125, 111, 0.5),
+    -12px -12px 24px rgba(255, 255, 255, 0.9),
+    0 0 30px rgba(255, 215, 0, 0.4),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.9),
+    inset -2px -2px 4px rgba(212, 175, 55, 0.3);
+    
+  animation: primary-pulse 3s ease-in-out infinite;
+}
+
+.welcome-button.primary:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 
+    15px 15px 30px rgba(139, 125, 111, 0.6),
+    -15px -15px 30px rgba(255, 255, 255, 1),
+    0 0 40px rgba(255, 215, 0, 0.6),
+    inset 2px 2px 4px rgba(255, 255, 255, 0.95),
+    inset -2px -2px 4px rgba(212, 175, 55, 0.2);
+}
+
+/* Secondary Buttons Container */
+.secondary-buttons {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.welcome-button.secondary {
+  font-size: 16px;
+  padding: 16px 32px;
+  min-width: 180px;
+  background: linear-gradient(145deg, #E8D5C4, #D3C4B3);
+  
+  /* Subtle raised effect */
+  box-shadow: 
+    8px 8px 16px rgba(139, 125, 111, 0.4),
+    -8px -8px 16px rgba(255, 255, 255, 0.8),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.7),
+    inset -1px -1px 2px rgba(139, 125, 111, 0.1);
+}
+
+.welcome-button.secondary:hover {
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    10px 10px 20px rgba(139, 125, 111, 0.5),
+    -10px -10px 20px rgba(255, 255, 255, 0.9),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.8),
+    inset -1px -1px 2px rgba(139, 125, 111, 0.05);
+}
+
+/* Animations */
+@keyframes welcome-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes welcome-modal-appear {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes gentle-bounce {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse-glow {
+  from {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+  to {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+}
+
+@keyframes title-shine {
+  0%, 100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.1);
+  }
+}
+
+@keyframes primary-pulse {
+  0%, 100% {
+    box-shadow: 
+      12px 12px 24px rgba(139, 125, 111, 0.5),
+      -12px -12px 24px rgba(255, 255, 255, 0.9),
+      0 0 30px rgba(255, 215, 0, 0.4),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.9),
+      inset -2px -2px 4px rgba(212, 175, 55, 0.3);
+  }
+  50% {
+    box-shadow: 
+      12px 12px 24px rgba(139, 125, 111, 0.5),
+      -12px -12px 24px rgba(255, 255, 255, 0.9),
+      0 0 40px rgba(255, 215, 0, 0.6),
+      inset 2px 2px 4px rgba(255, 255, 255, 0.95),
+      inset -2px -2px 4px rgba(212, 175, 55, 0.2);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .welcome-modal {
+    padding: 32px 24px;
+    border-radius: 32px;
+  }
+  
+  .chicken-mascot {
+    font-size: 80px;
+  }
+  
+  .mascot-glow {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .welcome-title {
+    font-size: 36px;
+  }
+  
+  .welcome-text {
+    font-size: 16px;
+  }
+  
+  .welcome-button.primary {
+    font-size: 20px;
+    padding: 20px 36px;
+    min-width: 240px;
+  }
+  
+  .welcome-button.secondary {
+    font-size: 14px;
+    padding: 14px 24px;
+    min-width: 140px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcome-modal {
+    padding: 24px 16px;
+    border-radius: 24px;
+    width: 95%;
+  }
+  
+  .chicken-mascot {
+    font-size: 60px;
+  }
+  
+  .mascot-glow {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .welcome-title {
+    font-size: 28px;
+  }
+  
+  .welcome-text {
+    font-size: 14px;
+  }
+  
+  .alpha-notice {
+    font-size: 12px;
+  }
+  
+  .welcome-button.primary {
+    font-size: 18px;
+    padding: 18px 32px;
+    min-width: 200px;
+  }
+  
+  .welcome-button.secondary {
+    font-size: 13px;
+    padding: 12px 20px;
+    min-width: 120px;
+  }
+  
+  .secondary-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+} 

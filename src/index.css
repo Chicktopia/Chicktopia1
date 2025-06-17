@@ -267,3 +267,127 @@ a:hover {
   background: var(--clay-darker);
   color: var(--bg-primary);
 }
+
+/* Solana Wallet Adapter Modal Overlay Overrides */
+/* These styles override the default wallet adapter modal background for better UX */
+
+/* Main modal backdrop - semi-transparent with blur effect */
+.wallet-adapter-modal-wrapper,
+.wallet-adapter-modal-overlay,
+.wallet-adapter-modal-backdrop,
+div[role="dialog"] {
+  background-color: rgba(40, 40, 40, 0.5) !important;
+  background: rgba(40, 40, 40, 0.5) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
+  z-index: 10001 !important;
+}
+
+/* Additional targeting for wallet adapter modals */
+.wallet-adapter-modal.wallet-adapter-modal-fade-in {
+  background-color: rgba(40, 40, 40, 0.5) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* Ensure modal container is properly styled */
+.wallet-adapter-modal-container {
+  /* Container styles are already defined in WalletConnectButton.css */
+  position: relative !important;
+  z-index: 10002 !important;
+}
+
+/* Override any potential solid backgrounds */
+[class*="wallet-adapter-modal"]:not(.wallet-adapter-modal-container) {
+  background-color: rgba(40, 40, 40, 0.5) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* Specific override for the most common wallet adapter modal class */
+.wallet-adapter-modal {
+  background-color: rgba(40, 40, 40, 0.5) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* Target any potential wrapper divs that might have solid backgrounds */
+body > div > div[style*="position: fixed"],
+body > div[style*="position: fixed"] {
+  background-color: rgba(40, 40, 40, 0.5) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+  backdrop-filter: blur(8px) !important;
+}
+
+/* Main App Background Transparency Control */
+/* When any modal is active, make the main app background transparent */
+/* This allows the modal overlay's blur effect to show the game content behind it */
+
+.main-app-container {
+  /* Normal state - solid beige background */
+  background-color: var(--bg-primary); /* #F6E5C7 - Sandy beige */
+  transition: background-color 0.3s ease;
+  min-height: 100vh;
+}
+
+.main-app-container.modal-is-open {
+  /* Modal open state - transparent background for blur effect */
+  background-color: transparent !important;
+}
+
+/* Also make the main app background transparent when wallet modal is detected */
+/* This is a fallback for wallet adapter modals that we can't directly control */
+body:has(.wallet-adapter-modal-wrapper) .main-app-container,
+body:has(.wallet-adapter-modal) .main-app-container,
+body:has([role="dialog"]) .main-app-container {
+  background-color: transparent !important;
+}
+
+/* Wallet Selection Modal Sizing and Styling Overrides */
+/* Make the modal smaller and more consistent with our game's design */
+
+/* Main modal container - constrain size and apply claymorphism styling */
+.wallet-adapter-modal-modal,
+.wallet-adapter-modal-container > div {
+  /* Core Sizing - prevent full-screen takeover */
+  max-width: 400px !important;
+  width: 90% !important;
+  
+  /* Visual Consistency - match our claymorphism design */
+  border-radius: 24px !important;
+  padding: 2rem !important;
+  
+  /* Apply our game's font for consistency */
+  font-family: 'Lilita One', cursive !important;
+  
+  /* Optional: Add subtle shadow for depth (if not already present) */
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.15),
+    0 8px 16px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Modal title styling for consistency */
+.wallet-adapter-modal-title,
+.wallet-adapter-modal h1,
+.wallet-adapter-modal h2 {
+  font-family: 'Lilita One', cursive !important;
+  font-size: 1.5rem !important;
+  color: #6B5B47 !important; /* Our primary text color */
+  margin-bottom: 1.5rem !important;
+  text-align: center !important;
+}
+
+/* Wallet list items - subtle styling improvements */
+.wallet-adapter-modal-list {
+  gap: 0.75rem !important;
+}
+
+.wallet-adapter-modal-list-item {
+  border-radius: 12px !important;
+  transition: all 0.2s ease !important;
+}
+
+.wallet-adapter-modal-list-item:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}

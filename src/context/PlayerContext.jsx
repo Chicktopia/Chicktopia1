@@ -1,4 +1,4 @@
-import React, { createContext, useContext } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { useGameState } from '../hooks/usePersistentState';
 import { rollChickenFromEgg, getEggBlueprint } from '../gameData/eggBlueprints';
 import { createChickenInstance } from '../gameData/chickenBlueprints';
@@ -150,6 +150,30 @@ export const PlayerProvider = ({ children }) => {
     gameState.setSelectedChickenId(null);
   };
 
+  // NEW: Welcome modal state management (separate from persistent game state)
+  const [isWelcomeModalOpen, setIsWelcomeModalOpen] = useState(false);
+  const [isWelcomeModalReopened, setIsWelcomeModalReopened] = useState(false);
+
+  // NEW: Global modal state for background transparency effect
+  const [isModalActive, setIsModalActive] = useState(false);
+
+  const openWelcomeModal = (isReopened = false) => {
+    setIsWelcomeModalOpen(true);
+    setIsWelcomeModalReopened(isReopened);
+    setIsModalActive(true); // Set global modal state
+  };
+
+  const closeWelcomeModal = () => {
+    setIsWelcomeModalOpen(false);
+    setIsWelcomeModalReopened(false);
+    setIsModalActive(false); // Clear global modal state
+  };
+
+  // General modal state management functions for any modal
+  const setModalActive = (active) => {
+    setIsModalActive(active);
+  };
+
   // Context value with all player data and functions
   const contextValue = {
     // Player stats
@@ -221,6 +245,16 @@ export const PlayerProvider = ({ children }) => {
     // NEW: Centralized chicken selection functions
     selectChicken,
     deselectChicken,
+
+    // NEW: Welcome modal state management
+    isWelcomeModalOpen,
+    isWelcomeModalReopened,
+    openWelcomeModal,
+    closeWelcomeModal,
+
+    // NEW: Global modal state management for background transparency
+    isModalActive,
+    setModalActive,
   };
 
   return (
