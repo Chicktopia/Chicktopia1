@@ -98,8 +98,8 @@ const AppContent = () => {
           {/* Bottom Navigation Bar - Rendered outside app container for proper fixed positioning */}
           <BottomNavigation />
           
-          {/* Global Developer Tool - Fixed to bottom-right corner */}
-          <DevTool />
+          {/* Global Developer Tool - Fixed to bottom-right corner - Only in development mode */}
+          {import.meta.env.DEV && <DevTool />}
 
           {/* Global Modals - Rendered at top level to work across all pages */}
           <GlobalModals />
